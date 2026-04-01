@@ -4,7 +4,7 @@
     <div class="container hero-content">
       <p class="hero-tag animate-fade-down">대한민국 대표 쭈꾸미 프랜차이즈</p>
       <h1 class="hero-title animate-fade-up">거침없이 즐기는<br><span class="highlight">쭈꾸미 한상</span></h1>
-      <p class="hero-desc animate-fade-up delay-1">###</p>
+      <p class="hero-desc animate-fade-up delay-1">############</p>
       <div class="hero-buttons animate-fade-up delay-2">
         <router-link to="/contact" class="btn-primary btn-pulse">가맹 상담 신청</router-link>
         <router-link to="/franchise" class="btn-outline-white">가맹 정보 보기</router-link>
@@ -71,6 +71,13 @@ import heroBg from '../assets/식당 전경3.png'
   z-index: 1;
   color: white;
   max-width: 680px;
+  padding-top: 80px;
+}
+
+@media (min-width: 769px) {
+  .hero-content {
+    padding-top: 0;
+  }
 }
 
 .hero-tag {

@@ -87,18 +87,18 @@ const tabs = [
 ]
 
 const mainMenu = [
-  { name: '쭈꾸미볶음', desc: '###', price: '###', badge: 'BEST', img: imgJjukkumi },
-  { name: '쭈나라 피자', desc: '###', price: '###', badge: 'NEW', img: imgPizza },
-  { name: '수제 돈까스', desc: '###', price: '###', badge: null, img: imgDonkasu },
-  { name: '새우튀김', desc: '###', price: '###', badge: null, img: imgSaewoo },
-  { name: '치즈퐁듀+감자튀김', desc: '###', price: '###', badge: null, img: imgFondu },
-  { name: '만두', desc: '###', price: '###', badge: null, img: imgMandu },
+  { name: '쭈꾸미볶음', desc: '####################', price: '###', badge: 'BEST', img: imgJjukkumi },
+  { name: '쭈나라 피자', desc: '####################', price: '###', badge: 'NEW', img: imgPizza },
+  { name: '수제 돈까스', desc: '####################', price: '###', badge: null, img: imgDonkasu },
+  { name: '새우튀김', desc: '####################', price: '###', badge: null, img: imgSaewoo },
+  { name: '치즈퐁듀+감자튀김', desc: '####################', price: '###', badge: null, img: imgFondu },
+  { name: '만두', desc: '####################', price: '###', badge: null, img: imgMandu },
 ]
 
 const setMenu = [
-  { name: '세트 A', desc: '###', price: '###', img: imgSetA },
-  { name: '세트 B', desc: '###', price: '###', img: imgSetB },
-  { name: '세트 C', desc: '###', price: '###', img: imgSetC },
+  { name: '세트 A', desc: '####################', price: '###', img: imgSetA },
+  { name: '세트 B', desc: '####################', price: '###', img: imgSetB },
+  { name: '세트 C', desc: '####################', price: '###', img: imgSetC },
 ]
 
 const sideMenu = [

@@ -26,7 +26,7 @@
         <div class="about-text" v-animate="'fade-left'">
           <h3 class="about-sub-title">###</h3>
           <p class="about-desc">
-            ###
+            ########################################
           </p>
           <div class="about-features">
             <div v-for="(f, i) in features" :key="i" class="feature">
@@ -44,19 +44,19 @@
 import storeImg from '../assets/식당 전경2.jpg'
 
 const strengths = [
-  { icon: '🔥', title: '검증된 맛', desc: '###' },
+  { icon: '🔥', title: '검증된 맛', desc: '####################' },
   { icon: '📊', title: '월 평균 매출 1억 5천', desc: '전국 가맹점 평균 월 매출 1억 5천만원 달성, 안정적인 수익 구조' },
-  { icon: '🏪', title: '소자본 창업 가능', desc: '###' },
-  { icon: '🤝', title: '본사 전폭 지원', desc: '###' },
-  { icon: '🚚', title: '식자재 직공급', desc: '###' },
-  { icon: '📱', title: '스마트 운영 시스템', desc: '###' },
+  { icon: '🏪', title: '소자본 창업 가능', desc: '####################' },
+  { icon: '🤝', title: '본사 전폭 지원', desc: '####################' },
+  { icon: '🚚', title: '식자재 직공급', desc: '####################' },
+  { icon: '📱', title: '스마트 운영 시스템', desc: '####################' },
 ]
 
 const features = [
-  '###',
-  '###',
-  '###',
-  '###',
+  '####################',
+  '####################',
+  '####################',
+  '####################',
 ]
 </script>
 

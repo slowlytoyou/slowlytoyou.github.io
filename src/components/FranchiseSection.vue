@@ -12,18 +12,18 @@
         <div class="benefit-card benefit-discount" v-animate="'scale'">
           <div class="benefit-num">30%</div>
           <h3>가맹비 할인</h3>
-          <p>오픈 기념 가맹비 30% 할인 이벤트 진행 중</p>
+          <p>####################</p>
           <span class="benefit-badge">EVENT</span>
         </div>
         <div class="benefit-card benefit-support" v-animate:[150]="'scale'">
           <div class="benefit-icon">💰</div>
           <h3>창업지원금</h3>
-          <p>본사 창업지원금으로<br>초기 부담을 낮추세요</p>
+          <p>####################</p>
         </div>
         <div class="benefit-card benefit-extra" v-animate:[300]="'scale'">
           <div class="benefit-icon">🎁</div>
           <h3>추가혜택</h3>
-          <p>인테리어, 간판, 홍보물<br>본사 패키지 제공</p>
+          <p>####################</p>
         </div>
       </div>
 
@@ -137,10 +137,10 @@ const costRows = [
 ]
 
 const supports = [
-  { icon: '📚', title: '체계적인 교육', desc: '###' },
-  { icon: '📦', title: '식자재 직공급', desc: '###' },
-  { icon: '📱', title: 'POS & 앱 지원', desc: '###' },
-  { icon: '📣', title: '마케팅 지원', desc: '###' },
+  { icon: '📚', title: '체계적인 교육', desc: '####################' },
+  { icon: '📦', title: '식자재 직공급', desc: '####################' },
+  { icon: '📱', title: 'POS & 앱 지원', desc: '####################' },
+  { icon: '📣', title: '마케팅 지원', desc: '####################' },
 ]
 
 const brandItems = [

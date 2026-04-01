@@ -7,7 +7,7 @@
             <span>🐙</span>
             <span class="logo-text">쭈나라꾸미</span>
           </div>
-          <p>###</p>
+          <p>########################################</p>
           <p class="copyright">© 2024 쭈나라꾸미 All rights reserved.</p>
         </div>
         <div class="footer-links">

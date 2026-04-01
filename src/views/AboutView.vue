@@ -32,9 +32,9 @@
 import AboutSection from '../components/AboutSection.vue'
 
 const history = [
-  { year: '###', title: '###', desc: '###' },
-  { year: '###', title: '###', desc: '###' },
-  { year: '###', title: '###', desc: '###' },
+  { year: '###', title: '###', desc: '####################' },
+  { year: '###', title: '###', desc: '####################' },
+  { year: '###', title: '###', desc: '####################' },
 ]
 </script>
 
