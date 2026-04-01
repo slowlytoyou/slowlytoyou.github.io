@@ -1,14 +1,34 @@
 <template>
   <section class="section franchise-section" id="franchise">
     <div class="container">
-      <div class="section-header">
-        <p class="label-tag">가맹 안내</p>
+      <div class="section-header" v-animate="'fade-up'">
+        <p class="label-tag">BUSINESS FRANCHISING</p>
         <h2 class="section-title">함께 성공하는<br>쭈나라꾸미 가맹 시스템</h2>
         <p class="section-subtitle">투명한 가맹 조건과 체계적인 지원으로 성공을 함께 만들어 갑니다.</p>
       </div>
 
+      <!-- 혜택 하이라이트 -->
+      <div class="benefit-highlight">
+        <div class="benefit-card benefit-discount" v-animate="'scale'">
+          <div class="benefit-num">30%</div>
+          <h3>가맹비 할인</h3>
+          <p>오픈 기념 가맹비 30% 할인 이벤트 진행 중</p>
+          <span class="benefit-badge">EVENT</span>
+        </div>
+        <div class="benefit-card benefit-support" v-animate:[150]="'scale'">
+          <div class="benefit-icon">💰</div>
+          <h3>창업지원금</h3>
+          <p>본사 창업지원금으로<br>초기 부담을 낮추세요</p>
+        </div>
+        <div class="benefit-card benefit-extra" v-animate:[300]="'scale'">
+          <div class="benefit-icon">🎁</div>
+          <h3>추가혜택</h3>
+          <p>인테리어, 간판, 홍보물<br>본사 패키지 제공</p>
+        </div>
+      </div>
+
       <!-- 매장 사진 갤러리 -->
-      <div class="store-gallery">
+      <div class="store-gallery" v-animate="'fade-up'">
         <div class="gallery-main">
           <img :src="store3" alt="쭈나라꾸미 표준 매장" />
           <span class="gallery-label">표준 매장 외관</span>
@@ -81,7 +101,7 @@
       </div>
 
       <!-- CTA -->
-      <div class="cta-box">
+      <div class="cta-box" v-animate="'scale'">
         <p>지금 바로 상담을 신청하고 성공 창업의 첫 걸음을 내딛으세요.</p>
         <router-link to="/contact" class="btn-primary">무료 상담 신청하기</router-link>
       </div>
@@ -109,18 +129,18 @@ const steps = [
 ]
 
 const costRows = [
-  { item: '가맹비', small: '500만원', medium: '700만원', large: '1,000만원' },
-  { item: '교육비', small: '200만원', medium: '200만원', large: '200만원' },
-  { item: '인테리어', small: '3,000만원~', medium: '5,000만원~', large: '8,000만원~' },
-  { item: '초도물품', small: '300만원', medium: '400만원', large: '500만원' },
-  { item: '보증금', small: '500만원', medium: '700만원', large: '1,000만원' },
+  { item: '가맹비', small: '###', medium: '###', large: '###' },
+  { item: '교육비', small: '###', medium: '###', large: '###' },
+  { item: '인테리어', small: '###', medium: '###', large: '###' },
+  { item: '초도물품', small: '###', medium: '###', large: '###' },
+  { item: '보증금', small: '###', medium: '###', large: '###' },
 ]
 
 const supports = [
-  { icon: '📚', title: '체계적인 교육', desc: '4주 본사 교육 + 현장 실습으로 누구나 쉽게 운영 가능' },
-  { icon: '📦', title: '식자재 직공급', desc: '본사 직거래로 신선한 재료를 합리적인 가격에 공급' },
-  { icon: '📱', title: 'POS & 앱 지원', desc: '스마트 주문·배달·정산 시스템 무료 제공' },
-  { icon: '📣', title: '마케팅 지원', desc: '전국 광고·SNS·앱 마케팅 본사 직접 운영' },
+  { icon: '📚', title: '체계적인 교육', desc: '###' },
+  { icon: '📦', title: '식자재 직공급', desc: '###' },
+  { icon: '📱', title: 'POS & 앱 지원', desc: '###' },
+  { icon: '📣', title: '마케팅 지원', desc: '###' },
 ]
 
 const brandItems = [
@@ -151,6 +171,89 @@ const brandItems = [
   margin-bottom: 12px;
 }
 
+/* 혜택 하이라이트 */
+.benefit-highlight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 70px;
+}
+
+.benefit-card {
+  background: white;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+}
+
+.benefit-discount {
+  background: linear-gradient(135deg, #C8392B, #e05545);
+  color: white;
+}
+
+.benefit-discount h3,
+.benefit-discount p {
+  color: white;
+}
+
+.benefit-num {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+  animation: countPop 0.6s ease-out;
+}
+
+@keyframes countPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.benefit-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--secondary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  animation: badgeBlink 1.5s infinite;
+}
+
+@keyframes badgeBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.benefit-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.benefit-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.benefit-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
 /* 매장 갤러리 */
 .store-gallery {
   display: grid;
@@ -172,11 +275,11 @@ const brandItems = [
   height: 360px;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.5s ease;
 }
 
 .gallery-main:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .gallery-sub {
@@ -190,11 +293,11 @@ const brandItems = [
   height: 172px;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.5s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .gallery-label {
@@ -238,6 +341,11 @@ const brandItems = [
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.step:hover .step-num {
+  transform: scale(1.15);
 }
 
 .step-content h4 {
@@ -289,6 +397,7 @@ const brandItems = [
   padding: 14px 24px;
   font-size: 0.9rem;
   border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
 }
 
 .cost-row:last-child {
@@ -302,7 +411,7 @@ const brandItems = [
 }
 
 .cost-row:not(.header):hover {
-  background: #fafafa;
+  background: #fff5f4;
 }
 
 .cost-notice {
@@ -325,6 +434,12 @@ const brandItems = [
   padding: 28px 20px;
   text-align: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
 }
 
 .support-icon {
@@ -361,11 +476,11 @@ const brandItems = [
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  transition: transform 0.2s;
+  transition: transform 0.3s ease;
 }
 
 .brand-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .brand-img {
@@ -377,11 +492,11 @@ const brandItems = [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.4s ease;
 }
 
 .brand-card:hover .brand-img img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .brand-card p {
@@ -394,30 +509,56 @@ const brandItems = [
 
 /* CTA */
 .cta-box {
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary), #e05545);
   color: white;
   border-radius: 16px;
   padding: 48px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: ctaShine 3s ease-in-out infinite;
+}
+
+@keyframes ctaShine {
+  0%, 100% { transform: translateX(-30%) translateY(-30%); }
+  50% { transform: translateX(30%) translateY(30%); }
 }
 
 .cta-box p {
   font-size: 1.1rem;
   margin-bottom: 24px;
   opacity: 0.9;
+  position: relative;
 }
 
 .cta-box .btn-primary {
   background: white;
   color: var(--primary);
   font-size: 1.05rem;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-box .btn-primary:hover {
   background: #f8f8f8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 900px) {
+  .benefit-highlight {
+    grid-template-columns: 1fr;
+  }
   .support-grid {
     grid-template-columns: repeat(2, 1fr);
   }

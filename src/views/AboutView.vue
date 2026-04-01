@@ -32,12 +32,9 @@
 import AboutSection from '../components/AboutSection.vue'
 
 const history = [
-  { year: '2004', title: '브랜드 창업', desc: '서울 마포구 첫 번째 매장 오픈' },
-  { year: '2007', title: '프랜차이즈 시작', desc: '가맹사업 공식 시작, 50호점 달성' },
-  { year: '2010', title: '100호점 돌파', desc: '수도권 주요 상권 진출 완료' },
-  { year: '2015', title: '500호점 달성', desc: '전국 주요 도시 확장, 브랜드 리뉴얼' },
-  { year: '2019', title: '1000호점 달성', desc: '해외 진출 시작 (베트남, 인도네시아)' },
-  { year: '2024', title: '1200호점 현재', desc: '대한민국 대표 외식 프랜차이즈 브랜드' },
+  { year: '###', title: '###', desc: '###' },
+  { year: '###', title: '###', desc: '###' },
+  { year: '###', title: '###', desc: '###' },
 ]
 </script>
 

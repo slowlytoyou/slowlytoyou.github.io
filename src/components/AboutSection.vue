@@ -1,45 +1,37 @@
 <template>
   <section class="section about-section" id="about">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-image">
+      <div class="section-header" v-animate="'fade-up'">
+        <p class="label-tag">WHY 쭈나라</p>
+        <h2 class="section-title">쭈나라 강점</h2>
+        <p class="section-subtitle">쭈나라꾸미가 선택받는 이유, 확실한 경쟁력을 확인하세요.</p>
+      </div>
+
+      <div class="strengths-grid">
+        <div v-for="(item, i) in strengths" :key="i" class="strength-card" :class="`strength-${i}`" v-animate:[i*100]="'fade-up'">
+          <div class="strength-icon">{{ item.icon }}</div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <div class="about-image-wrap" v-animate="'fade-right'">
           <img :src="storeImg" alt="쭈나라꾸미 매장 전경" class="main-img" />
           <div class="about-badge">
-            <strong>2004</strong>
+            <strong>###</strong>
             <span>창업</span>
           </div>
-          <div class="interior-thumb">
-            <img :src="interiorImg" alt="매장 인테리어" />
-            <span>표준 인테리어</span>
-          </div>
         </div>
-        <div class="about-text">
-          <p class="label-tag">브랜드 스토리</p>
-          <h2 class="section-title">20년 전통의<br>쭈꾸미 맛을 이어가다</h2>
+        <div class="about-text" v-animate="'fade-left'">
+          <h3 class="about-sub-title">###</h3>
           <p class="about-desc">
-            2004년 작은 골목식당에서 시작한 쭈나라꾸미는 진심 어린 맛 하나로
-            전국 300여 개의 매장을 운영하는 대한민국 대표 쭈꾸미 프랜차이즈로 성장했습니다.
-          </p>
-          <p class="about-desc">
-            신선한 국내산 쭈꾸미, 20년을 지켜온 비법 양념, 그리고 가맹점주와 함께
-            성장하는 상생 경영을 통해 지속적인 브랜드 신뢰를 쌓아가고 있습니다.
+            ###
           </p>
           <div class="about-features">
-            <div class="feature">
+            <div v-for="(f, i) in features" :key="i" class="feature">
               <span class="feature-icon">✓</span>
-              <span>100% 국내산 신선 쭈꾸미 사용</span>
-            </div>
-            <div class="feature">
-              <span class="feature-icon">✓</span>
-              <span>20년 비법 양념 레시피 완전 전수</span>
-            </div>
-            <div class="feature">
-              <span class="feature-icon">✓</span>
-              <span>전문 교육 센터 운영 (4주 과정)</span>
-            </div>
-            <div class="feature">
-              <span class="feature-icon">✓</span>
-              <span>24시간 본사 서포트 시스템</span>
+              <span>{{ f }}</span>
             </div>
           </div>
         </div>
@@ -50,7 +42,22 @@
 
 <script setup>
 import storeImg from '../assets/식당 전경2.jpg'
-import interiorImg from '../assets/식당 조감도2.jpg'
+
+const strengths = [
+  { icon: '🔥', title: '검증된 맛', desc: '###' },
+  { icon: '📊', title: '월 평균 매출 1억 5천', desc: '전국 가맹점 평균 월 매출 1억 5천만원 달성, 안정적인 수익 구조' },
+  { icon: '🏪', title: '소자본 창업 가능', desc: '###' },
+  { icon: '🤝', title: '본사 전폭 지원', desc: '###' },
+  { icon: '🚚', title: '식자재 직공급', desc: '###' },
+  { icon: '📱', title: '스마트 운영 시스템', desc: '###' },
+]
+
+const features = [
+  '###',
+  '###',
+  '###',
+  '###',
+]
 </script>
 
 <style scoped>
@@ -58,14 +65,91 @@ import interiorImg from '../assets/식당 조감도2.jpg'
   background: var(--light-gray);
 }
 
-.about-grid {
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.label-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--gray);
+}
+
+/* Strengths Grid */
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.strength-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.strength-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+}
+
+.strength-card:hover::before {
+  transform: scaleX(1);
+}
+
+.strength-icon {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.strength-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.strength-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* About Visual */
+.about-visual {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
 }
 
-.about-image {
+.about-image-wrap {
   position: relative;
 }
 
@@ -92,6 +176,12 @@ import interiorImg from '../assets/식당 조감도2.jpg'
   justify-content: center;
   box-shadow: 0 8px 24px rgba(200,57,43,0.4);
   z-index: 1;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .about-badge strong {
@@ -105,49 +195,21 @@ import interiorImg from '../assets/식당 조감도2.jpg'
   margin-top: 2px;
 }
 
-.interior-thumb {
-  margin-top: 14px;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.interior-thumb img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-}
-
-.interior-thumb span {
-  position: absolute;
-  bottom: 8px;
-  left: 12px;
-  background: rgba(0,0,0,0.55);
-  color: white;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-
-.label-tag {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
+.about-sub-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.4;
 }
 
 .about-desc {
   color: var(--gray);
   line-height: 1.8;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
 .about-features {
-  margin-top: 28px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -175,15 +237,23 @@ import interiorImg from '../assets/식당 조감도2.jpg'
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .about-grid {
+@media (max-width: 900px) {
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-visual {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+}
 
+@media (max-width: 560px) {
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
   .about-badge {
     right: 10px;
-    bottom: 100px;
+    bottom: -10px;
     width: 80px;
     height: 80px;
   }

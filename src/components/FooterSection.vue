@@ -7,7 +7,7 @@
             <span>🐙</span>
             <span class="logo-text">쭈나라꾸미</span>
           </div>
-          <p>20년 전통의 비법 양념으로 대한민국 쭈꾸미 문화를 이끌어갑니다.</p>
+          <p>###</p>
           <p class="copyright">© 2024 쭈나라꾸미 All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -21,9 +21,9 @@
           </div>
           <div>
             <h4>고객센터</h4>
-            <a href="tel:15880000">1588-0000</a>
-            <span>평일 09:00 ~ 18:00</span>
-            <a href="mailto:franchise@brand.co.kr">franchise@brand.co.kr</a>
+            <span>###</span>
+            <span>###</span>
+            <span>###</span>
           </div>
           <div>
             <h4>SNS</h4>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>사업자등록번호: 123-45-67890 | 대표: 홍길동 | 서울시 강남구 테헤란로 123</p>
+        <p>사업자등록번호: ### | 대표: ### | ###</p>
         <div class="footer-policy">
           <a href="#" @click.prevent>개인정보처리방침</a>
           <a href="#" @click.prevent>이용약관</a>

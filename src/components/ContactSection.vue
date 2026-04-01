@@ -14,28 +14,28 @@
               <span class="info-icon">📞</span>
               <div>
                 <p class="info-label">가맹 상담 전화</p>
-                <p class="info-value">1588-0000</p>
+                <p class="info-value">###</p>
               </div>
             </div>
             <div class="info-item">
               <span class="info-icon">🕐</span>
               <div>
                 <p class="info-label">운영 시간</p>
-                <p class="info-value">평일 09:00 ~ 18:00</p>
+                <p class="info-value">###</p>
               </div>
             </div>
             <div class="info-item">
               <span class="info-icon">✉️</span>
               <div>
                 <p class="info-label">이메일 문의</p>
-                <p class="info-value">franchise@brand.co.kr</p>
+                <p class="info-value">###</p>
               </div>
             </div>
             <div class="info-item">
               <span class="info-icon">📍</span>
               <div>
                 <p class="info-label">본사 주소</p>
-                <p class="info-value">서울시 강남구 테헤란로 123</p>
+                <p class="info-value">###</p>
               </div>
             </div>
           </div>

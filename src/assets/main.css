@@ -93,3 +93,34 @@ img {
   background: var(--primary);
   color: white;
 }
+
+/* Scroll Animation System */
+.v-animate {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.v-animate--fade-up {
+  transform: translateY(40px);
+}
+
+.v-animate--fade-down {
+  transform: translateY(-40px);
+}
+
+.v-animate--fade-left {
+  transform: translateX(-40px);
+}
+
+.v-animate--fade-right {
+  transform: translateX(40px);
+}
+
+.v-animate--scale {
+  transform: scale(0.9);
+}
+
+.v-animate--visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
