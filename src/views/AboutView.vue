@@ -1,0 +1,162 @@
+<template>
+  <div class="page-wrapper">
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><router-link to="/">홈</router-link> / 브랜드 소개</p>
+        <h1>브랜드 소개</h1>
+      </div>
+    </div>
+    <AboutSection />
+    <section class="section timeline-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label-tag">브랜드 히스토리</p>
+          <h2 class="section-title">우리의 걸어온 길</h2>
+        </div>
+        <div class="timeline">
+          <div v-for="item in history" :key="item.year" class="timeline-item">
+            <div class="timeline-year">{{ item.year }}</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script setup>
+import AboutSection from '../components/AboutSection.vue'
+
+const history = [
+  { year: '2004', title: '브랜드 창업', desc: '서울 마포구 첫 번째 매장 오픈' },
+  { year: '2007', title: '프랜차이즈 시작', desc: '가맹사업 공식 시작, 50호점 달성' },
+  { year: '2010', title: '100호점 돌파', desc: '수도권 주요 상권 진출 완료' },
+  { year: '2015', title: '500호점 달성', desc: '전국 주요 도시 확장, 브랜드 리뉴얼' },
+  { year: '2019', title: '1000호점 달성', desc: '해외 진출 시작 (베트남, 인도네시아)' },
+  { year: '2024', title: '1200호점 현재', desc: '대한민국 대표 외식 프랜차이즈 브랜드' },
+]
+</script>
+
+<style scoped>
+.page-wrapper {
+  padding-top: 70px;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, #1a1a1a, #3d0e0e);
+  color: white;
+  padding: 60px 0;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.breadcrumb a {
+  color: rgba(255,255,255,0.5);
+}
+
+.breadcrumb a:hover {
+  color: white;
+}
+
+.page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.timeline-section {
+  background: var(--light-gray);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.label-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 120px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e0e0e0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.timeline-year {
+  width: 100px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  padding-top: 4px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.timeline-dot::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(200,57,43,0.2);
+}
+
+.timeline-content {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.timeline-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: 0.88rem;
+  color: var(--gray);
+}
+</style>
