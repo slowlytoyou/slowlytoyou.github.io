@@ -164,7 +164,7 @@ const features = [
 .about-badge {
   position: absolute;
   bottom: -20px;
-  right: -20px;
+  right: 10px;
   background: var(--primary);
   color: white;
   width: 100px;
