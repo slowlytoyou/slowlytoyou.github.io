@@ -4,27 +4,10 @@
       <div class="section-header" v-animate="'fade-up'">
         <p class="label-tag">BUSINESS FRANCHISING</p>
         <h2 class="section-title">함께 성공하는<br>쭈나라꾸미 가맹 시스템</h2>
-        <p class="section-subtitle">투명한 가맹 조건과 체계적인 지원으로 성공을 함께 만들어 갑니다.</p>
-      </div>
-
-      <!-- 혜택 하이라이트 -->
-      <div class="benefit-highlight">
-        <div class="benefit-card benefit-discount" v-animate="'scale'">
-          <div class="benefit-num">30%</div>
-          <h3>가맹비 할인</h3>
-          <p>####################</p>
-          <span class="benefit-badge">EVENT</span>
-        </div>
-        <div class="benefit-card benefit-support" v-animate:[150]="'scale'">
-          <div class="benefit-icon">💰</div>
-          <h3>창업지원금</h3>
-          <p>####################</p>
-        </div>
-        <div class="benefit-card benefit-extra" v-animate:[300]="'scale'">
-          <div class="benefit-icon">🎁</div>
-          <h3>추가혜택</h3>
-          <p>####################</p>
-        </div>
+        <p class="section-subtitle">
+          누구나 가맹점 하고 싶어 하지만 아무나 가맹점을 할 수 없는 사업입니다.<br>
+          철저한 내부 심사를 통해 선발됩니다.
+        </p>
       </div>
 
       <!-- 매장 사진 갤러리 -->
@@ -58,36 +41,49 @@
       </div>
 
       <!-- 가맹 비용 -->
-      <div class="cost-table-wrap">
-        <h3 class="cost-title">가맹 비용 안내</h3>
+      <div class="cost-table-wrap" v-animate="'fade-up'">
+        <h3 class="cost-title">초기 투자비용 안내</h3>
+        <p class="cost-sub">70평 기준 / 단위: 만원</p>
         <div class="cost-table">
           <div class="cost-row header">
             <span>항목</span>
-            <span>소형 (20평 이하)</span>
-            <span>중형 (20~40평)</span>
-            <span>대형 (40평 이상)</span>
+            <span>금액</span>
+            <span>비고</span>
           </div>
           <div v-for="row in costRows" :key="row.item" class="cost-row">
             <span>{{ row.item }}</span>
-            <span>{{ row.small }}</span>
-            <span>{{ row.medium }}</span>
-            <span>{{ row.large }}</span>
+            <span class="cost-amount">{{ row.amount }}</span>
+            <span class="cost-note">{{ row.note }}</span>
+          </div>
+          <div class="cost-row total">
+            <span>총합계</span>
+            <span class="cost-amount">23,300만원</span>
+            <span></span>
           </div>
         </div>
-        <p class="cost-notice">※ 위 금액은 VAT 포함 기준이며, 점포 상황에 따라 달라질 수 있습니다.</p>
+        <p class="cost-notice">※ 상기 인테리어 비용은 예상 금액으로, 현장 실측 및 매장 조건에 따라 변동될 수 있습니다.</p>
+        <p class="cost-notice">※ 매장 상황에 따라 인테리어, 간판, 주방 시설 비용은 일부 조정될 수 있습니다.</p>
       </div>
 
       <!-- 본사 지원 -->
-      <div class="support-grid">
-        <div v-for="s in supports" :key="s.title" class="support-card">
-          <span class="support-icon">{{ s.icon }}</span>
-          <h4>{{ s.title }}</h4>
-          <p>{{ s.desc }}</p>
+      <div class="support-section" v-animate="'fade-up'">
+        <h3 class="cost-title">본사 지원 시스템</h3>
+        <div class="support-cards">
+          <div class="support-card">
+            <span class="support-icon">🔍</span>
+            <h4>철저한 심사 선발</h4>
+            <p>가맹점은 단순 신청이 아닌, 철저한 내부 심사를 통해 선발됩니다.</p>
+          </div>
+          <div class="support-card">
+            <span class="support-icon">🧪</span>
+            <h4>블루솔트 창업전략연구소</h4>
+            <p>오랜 경험을 가진 프랜차이즈 전문가들로 구성되어, 가맹점을 성공적인 창업으로 이끌어 드립니다.</p>
+          </div>
         </div>
       </div>
 
       <!-- 브랜드 아이덴티티 -->
-      <div class="brand-identity">
+      <div class="brand-identity" v-animate="'fade-up'">
         <h3 class="cost-title">브랜드 아이덴티티 패키지</h3>
         <p class="brand-sub">가맹 계약 시 본사가 일괄 제공하는 브랜드 패키지입니다.</p>
         <div class="brand-grid">
@@ -121,7 +117,7 @@ import imgBanner from '../assets/15 오픈현수막.jpg'
 
 const steps = [
   { title: '상담 신청', desc: '온라인 또는 전화 상담' },
-  { title: '현장 방문', desc: '본사 방문 및 매장 견학' },
+  { title: '내부 심사', desc: '철저한 심사를 통한 선발' },
   { title: '상권 분석', desc: '입지 및 상권 전문 분석' },
   { title: '계약 체결', desc: '가맹 계약 및 교육 시작' },
   { title: '오픈 준비', desc: '인테리어·설비 지원' },
@@ -129,18 +125,15 @@ const steps = [
 ]
 
 const costRows = [
-  { item: '가맹비', small: '###', medium: '###', large: '###' },
-  { item: '교육비', small: '###', medium: '###', large: '###' },
-  { item: '인테리어', small: '###', medium: '###', large: '###' },
-  { item: '초도물품', small: '###', medium: '###', large: '###' },
-  { item: '보증금', small: '###', medium: '###', large: '###' },
-]
-
-const supports = [
-  { icon: '📚', title: '체계적인 교육', desc: '####################' },
-  { icon: '📦', title: '식자재 직공급', desc: '####################' },
-  { icon: '📱', title: 'POS & 앱 지원', desc: '####################' },
-  { icon: '📣', title: '마케팅 지원', desc: '####################' },
+  { item: '가맹비', amount: '2,000만원', note: '소멸성' },
+  { item: '교육비', amount: '1,000만원', note: '' },
+  { item: '보증금', amount: '500만원', note: '보증보험 가입시 현금 예치 없음' },
+  { item: '인테리어', amount: '15,400만원', note: '220만원(평당)' },
+  { item: '주방기기', amount: '2,500만원', note: '워크인냉장고 별도' },
+  { item: '의탁자', amount: '1,200만원', note: '' },
+  { item: '간판', amount: '600만원', note: '' },
+  { item: '로열티', amount: '100만원', note: '월 로열티 + 창업전략연구소 운영비' },
+  { item: 'POS시스템/서빙로봇', amount: '-', note: '선택사항 (KT하이오더)' },
 ]
 
 const brandItems = [
@@ -169,89 +162,6 @@ const brandItems = [
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 12px;
-}
-
-/* 혜택 하이라이트 */
-.benefit-highlight {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 70px;
-}
-
-.benefit-card {
-  background: white;
-  border-radius: 16px;
-  padding: 36px 28px;
-  text-align: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.benefit-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
-}
-
-.benefit-discount {
-  background: linear-gradient(135deg, #C8392B, #e05545);
-  color: white;
-}
-
-.benefit-discount h3,
-.benefit-discount p {
-  color: white;
-}
-
-.benefit-num {
-  font-size: 3.5rem;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 8px;
-  animation: countPop 0.6s ease-out;
-}
-
-@keyframes countPop {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.benefit-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: var(--secondary);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.05em;
-  animation: badgeBlink 1.5s infinite;
-}
-
-@keyframes badgeBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.benefit-icon {
-  font-size: 2.8rem;
-  margin-bottom: 12px;
-}
-
-.benefit-card h3 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.benefit-card p {
-  font-size: 0.88rem;
-  color: var(--gray);
-  line-height: 1.6;
 }
 
 /* 매장 갤러리 */
@@ -375,7 +285,13 @@ const brandItems = [
 .cost-title {
   font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.cost-sub {
+  font-size: 0.88rem;
+  color: var(--gray);
+  margin-bottom: 20px;
 }
 
 .brand-sub {
@@ -393,7 +309,7 @@ const brandItems = [
 
 .cost-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 2fr;
   padding: 14px 24px;
   font-size: 0.9rem;
   border-bottom: 1px solid #f0f0f0;
@@ -410,28 +326,52 @@ const brandItems = [
   font-weight: 700;
 }
 
-.cost-row:not(.header):hover {
+.cost-row.total {
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.cost-row:not(.header):not(.total):hover {
   background: #fff5f4;
+}
+
+.cost-amount {
+  font-weight: 600;
+}
+
+.cost-note {
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+.cost-row.total .cost-amount {
+  color: white;
 }
 
 .cost-notice {
   font-size: 0.8rem;
   color: var(--gray);
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 /* 지원 카드 */
-.support-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+.support-section {
   margin-bottom: 60px;
+}
+
+.support-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
 }
 
 .support-card {
   background: white;
   border-radius: 12px;
-  padding: 28px 20px;
+  padding: 32px 24px;
   text-align: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -455,9 +395,9 @@ const brandItems = [
 }
 
 .support-card p {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--gray);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* 브랜드 아이덴티티 */
@@ -556,11 +496,8 @@ const brandItems = [
 }
 
 @media (max-width: 900px) {
-  .benefit-highlight {
+  .support-cards {
     grid-template-columns: 1fr;
-  }
-  .support-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
   .brand-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -584,9 +521,6 @@ const brandItems = [
 }
 
 @media (max-width: 560px) {
-  .support-grid {
-    grid-template-columns: 1fr;
-  }
   .brand-grid {
     grid-template-columns: repeat(2, 1fr);
   }

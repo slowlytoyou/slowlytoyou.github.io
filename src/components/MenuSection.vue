@@ -4,7 +4,7 @@
       <div class="section-header" v-animate="'fade-up'">
         <p class="label-tag">BEST MENU</p>
         <h2 class="section-title">고객이 사랑하는<br>쭈나라꾸미 메뉴</h2>
-        <p class="section-subtitle">20년의 노하우가 담긴 대표 메뉴들을 만나보세요.</p>
+        <p class="section-subtitle">쭈나라꾸미의 대표 메뉴들을 만나보세요.</p>
       </div>
 
       <div class="tab-bar">
@@ -26,7 +26,6 @@
           </div>
           <div class="menu-info">
             <h3 class="menu-name">{{ item.name }}</h3>
-            <p class="menu-desc">{{ item.desc }}</p>
             <p class="menu-price">{{ item.price }}</p>
           </div>
         </div>
@@ -39,7 +38,6 @@
           </div>
           <div class="set-info">
             <h3>{{ item.name }}</h3>
-            <p>{{ item.desc }}</p>
             <p class="menu-price">{{ item.price }}</p>
           </div>
         </div>
@@ -87,26 +85,26 @@ const tabs = [
 ]
 
 const mainMenu = [
-  { name: '쭈꾸미볶음', desc: '####################', price: '###', badge: 'BEST', img: imgJjukkumi },
-  { name: '쭈나라 피자', desc: '####################', price: '###', badge: 'NEW', img: imgPizza },
-  { name: '수제 돈까스', desc: '####################', price: '###', badge: null, img: imgDonkasu },
-  { name: '새우튀김', desc: '####################', price: '###', badge: null, img: imgSaewoo },
-  { name: '치즈퐁듀+감자튀김', desc: '####################', price: '###', badge: null, img: imgFondu },
-  { name: '만두', desc: '####################', price: '###', badge: null, img: imgMandu },
+  { name: '쭈꾸미볶음', price: '11,000원', badge: 'BEST', img: imgJjukkumi },
+  { name: '쭈나라 피자', price: '6,000원', badge: null, img: imgPizza },
+  { name: '수제 돈까스', price: '2,000원', badge: null, img: imgDonkasu },
+  { name: '새우튀김', price: '2,500원', badge: null, img: imgSaewoo },
+  { name: '치즈퐁듀+감자튀김', price: '6,000원', badge: null, img: imgFondu },
+  { name: '만두', price: '4,000원', badge: null, img: imgMandu },
 ]
 
 const setMenu = [
-  { name: '세트 A', desc: '####################', price: '###', img: imgSetA },
-  { name: '세트 B', desc: '####################', price: '###', img: imgSetB },
-  { name: '세트 C', desc: '####################', price: '###', img: imgSetC },
+  { name: '쭈나라 세트A', price: '12,900원', img: imgSetA },
+  { name: '쭈나라 세트B', price: '12,900원', img: imgSetB },
+  { name: '쭈나라 세트C', price: '14,900원', img: imgSetC },
 ]
 
 const sideMenu = [
-  { name: '샐러드', price: '###', img: imgSalad },
-  { name: '묵사발', price: '###', img: imgMuk },
-  { name: '계란찜', price: '###', img: imgGgrancim },
-  { name: '공기밥', price: '###', img: imgRice },
-  { name: '우동사리', price: '###', img: imgUdon },
+  { name: '샐러드', price: '3,500원', img: imgSalad },
+  { name: '묵사발', price: '3,500원', img: imgMuk },
+  { name: '계란찜', price: '3,000원', img: imgGgrancim },
+  { name: '공기밥', price: '1,000원', img: imgRice },
+  { name: '우동사리', price: '2,000원', img: imgUdon },
 ]
 </script>
 

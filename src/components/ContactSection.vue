@@ -2,9 +2,9 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="contact-wrap">
-        <div class="contact-info">
+        <div class="contact-info" v-animate="'fade-right'">
           <p class="label-tag">상담 문의</p>
-          <h2 class="section-title">성공 창업의<br>시작, 지금 시작하세요</h2>
+          <h2 class="section-title">가맹 상담 신청</h2>
           <p class="contact-desc">
             가맹 상담부터 오픈 준비까지 전담 컨설턴트가 함께합니다.<br>
             부담 없이 상담을 신청해 주세요.
@@ -14,34 +14,27 @@
               <span class="info-icon">📞</span>
               <div>
                 <p class="info-label">가맹 상담 전화</p>
-                <p class="info-value">###</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">🕐</span>
-              <div>
-                <p class="info-label">운영 시간</p>
-                <p class="info-value">###</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <span class="info-icon">✉️</span>
-              <div>
-                <p class="info-label">이메일 문의</p>
-                <p class="info-value">###</p>
+                <p class="info-value">010-2132-3153</p>
               </div>
             </div>
             <div class="info-item">
               <span class="info-icon">📍</span>
               <div>
                 <p class="info-label">본사 주소</p>
-                <p class="info-value">###</p>
+                <p class="info-value">대구시 동구 동부로 30길 102-3, 1208호</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">👤</span>
+              <div>
+                <p class="info-label">대표</p>
+                <p class="info-value">박철주</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-wrap">
+        <div class="contact-form-wrap" v-animate="'fade-left'">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSfqSqCV7LZzNx3-bPnZeWylUy3DgfcGVRQ-FJzX7DdQZdToKQ/viewform?embedded=true"
             width="100%"

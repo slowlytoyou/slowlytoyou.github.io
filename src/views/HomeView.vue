@@ -22,7 +22,7 @@
 import HeroSection from '../components/HeroSection.vue'
 
 const quickLinks = [
-  { to: '/about', icon: '🏆', title: '브랜드 소개', desc: '20년 전통의 이야기' },
+  { to: '/about', icon: '🏆', title: '브랜드 소개', desc: '25년 검증된 맛과 시스템' },
   { to: '/menu', icon: '🍽️', title: '대표 메뉴', desc: '시그니처 메뉴 보기' },
   { to: '/franchise', icon: '🏪', title: '가맹 안내', desc: '창업 비용 및 지원' },
   { to: '/contact', icon: '📞', title: '상담 신청', desc: '무료 1:1 상담' },

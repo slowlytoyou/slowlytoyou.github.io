@@ -7,8 +7,8 @@
             <span>🐙</span>
             <span class="logo-text">쭈나라꾸미</span>
           </div>
-          <p>########################################</p>
-          <p class="copyright">© 2024 쭈나라꾸미 All rights reserved.</p>
+          <p>맛은 25년 동안 검증 됐고! 구조는 프랜차이즈로 완성됐다!</p>
+          <p class="copyright">© 2025 주)청염 All rights reserved.</p>
         </div>
         <div class="footer-links">
           <div>
@@ -21,24 +21,13 @@
           </div>
           <div>
             <h4>고객센터</h4>
-            <span>###</span>
-            <span>###</span>
-            <span>###</span>
-          </div>
-          <div>
-            <h4>SNS</h4>
-            <a href="#" @click.prevent>인스타그램</a>
-            <a href="#" @click.prevent>유튜브</a>
-            <a href="#" @click.prevent>블로그</a>
+            <span>010-2132-3153</span>
+            <span>대구시 동구 동부로 30길 102-3, 1208호</span>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>사업자등록번호: ### | 대표: ### | ###</p>
-        <div class="footer-policy">
-          <a href="#" @click.prevent>개인정보처리방침</a>
-          <a href="#" @click.prevent>이용약관</a>
-        </div>
+        <p>사업자등록번호: 192-88-03527 | 대표: 박철주 | 주)청염</p>
       </div>
     </div>
   </footer>
@@ -48,17 +37,16 @@
 .footer {
   background: #111;
   color: rgba(255,255,255,0.7);
-  padding: 60px 0 30px;
+  padding: 40px 0 24px;
 }
 
 .footer-top {
   display: flex;
-  gap: 60px;
-  margin-bottom: 40px;
-}
-
-.footer-brand {
-  flex: 1;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -66,7 +54,7 @@
   align-items: center;
   gap: 10px;
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-size: 1.2rem;
 }
 
@@ -81,7 +69,7 @@
 }
 
 .copyright {
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 0.78rem;
   opacity: 0.5;
 }
@@ -117,29 +105,15 @@
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-top: 20px;
   font-size: 0.78rem;
   opacity: 0.5;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.footer-policy {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-policy a {
-  color: inherit;
 }
 
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
-    gap: 36px;
+    gap: 24px;
   }
   .footer-links {
     flex-wrap: wrap;

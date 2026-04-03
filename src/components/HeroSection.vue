@@ -2,9 +2,9 @@
   <section class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-tag animate-fade-down">대한민국 대표 쭈꾸미 프랜차이즈</p>
+      <p class="hero-tag animate-fade-down">대구경북 프리미엄 쭈꾸미 브랜드</p>
       <h1 class="hero-title animate-fade-up">거침없이 즐기는<br><span class="highlight">쭈꾸미 한상</span></h1>
-      <p class="hero-desc animate-fade-up delay-1">############</p>
+      <p class="hero-desc animate-fade-up delay-1">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
       <div class="hero-buttons animate-fade-up delay-2">
         <router-link to="/contact" class="btn-primary btn-pulse">가맹 상담 신청</router-link>
         <router-link to="/franchise" class="btn-outline-white">가맹 정보 보기</router-link>
@@ -15,20 +15,6 @@
           <div class="revenue-num">
             <span class="revenue-amount">1억 5천</span>
             <span class="revenue-unit">만원</span>
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num count-up">###</span>
-            <span class="stat-label">전국 매장</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">###</span>
-            <span class="stat-label">브랜드 역사</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">###</span>
-            <span class="stat-label">가맹점 만족도</span>
           </div>
         </div>
       </div>
@@ -102,7 +88,6 @@ import heroBg from '../assets/식당 전경3.png'
 
 .highlight {
   color: var(--secondary);
-  position: relative;
 }
 
 .hero-desc {
@@ -182,30 +167,6 @@ import heroBg from '../assets/식당 전경3.png'
 .revenue-unit {
   font-size: 1rem;
   color: rgba(255,255,255,0.7);
-}
-
-.hero-stats {
-  display: flex;
-  gap: 36px;
-  flex-wrap: wrap;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-num {
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: white;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.55);
-  margin-top: 4px;
 }
 
 /* Scroll indicator */
