@@ -3,13 +3,16 @@
     <div class="container">
       <div class="section-header" v-animate="'fade-up'">
         <p class="label-tag">WHY 쭈나라</p>
-        <h2 class="section-title">쭈나라 강점</h2>
+        <h2 class="section-title">쭈나라 <span class="title-accent">강점</span></h2>
         <p class="section-subtitle">유행이 아닌 구조, 쭈나라꾸미.</p>
       </div>
 
       <div class="strengths-grid">
-        <div v-for="(item, i) in strengths" :key="i" class="strength-card" v-animate:[i*100]="'fade-up'">
-          <div class="strength-icon">{{ item.icon }}</div>
+        <div v-for="(item, i) in strengths" :key="i" class="strength-card" :class="`strength-${i}`" v-animate:[i*120]="'fade-up'">
+          <div class="strength-icon-wrap">
+            <span class="strength-icon">{{ item.icon }}</span>
+          </div>
+          <div class="strength-num">{{ String(i + 1).padStart(2, '0') }}</div>
           <h3>{{ item.title }}</h3>
           <p>{{ item.desc }}</p>
         </div>
@@ -31,12 +34,46 @@
           <p class="brand-bold">
             쭈나라꾸미는 환경에 맞추지 않습니다. 환경을 장악합니다.
           </p>
+        </div>
+      </div>
+
+      <!-- BS 창업전략연구소 전용 섹션 -->
+      <div class="bs-section" v-animate="'fade-up'">
+        <div class="bs-badge">BS 창업전략연구소</div>
+        <h3 class="bs-title">매장을 살리고 성장시키는 <span>컨설팅 조직</span></h3>
+        <div class="bs-content">
           <p>
-            BS(블루솔트)창업전략연구소는 가맹점의 오픈부터 운영 전반까지 함께하며,
-            구조가 실제 수익으로 이어질 수 있도록 지속적으로 분석하고 개선합니다.
-            우리는 단순한 가맹 확대가 아닌, 다음 세대까지 이어질 수 있는 사업 구조를 만듭니다.
+            <strong>블루솔트 창업전략연구소</strong>는 쭈나라꾸미의 전략적 파트너로서,
+            가맹점의 <strong>'실제 수익'</strong>을 만들어내는 전문 컨설팅 조직입니다.
+          </p>
+          <p>
+            본사는 단순한 관리 체계를 넘어, 전문 컨설팅 기능을 체계적으로 구축하여
+            가맹점을 실질적으로 지원하는 운영 시스템을 갖추고 있습니다.
+            기존 프랜차이즈가 관리 중심에 머무는 것과 달리, 블루솔트는 각 매장의 상황을 분석하고
+            <strong>수익이 나는 구조를 설계</strong>하는 데 집중합니다.
           </p>
         </div>
+        <div class="bs-features">
+          <div class="bs-feature">
+            <div class="bs-feature-icon">📊</div>
+            <h4>데이터 기반 진단</h4>
+            <p>상권, 매출, 인력 운영, 원가 구조까지 매장의 실제 데이터를 기반으로 문제를 진단합니다.</p>
+          </div>
+          <div class="bs-feature">
+            <div class="bs-feature-icon">⚙️</div>
+            <h4>운영 전반 개선</h4>
+            <p>운영 전반을 개선하여 실질적인 매출과 수익으로 연결합니다.</p>
+          </div>
+          <div class="bs-feature">
+            <div class="bs-feature-icon">🔄</div>
+            <h4>지속적 점검</h4>
+            <p>오픈 이후에도 일회성 지원에 그치지 않고 지속적인 점검과 분석으로 함께합니다.</p>
+          </div>
+        </div>
+        <p class="bs-conclusion">
+          블루솔트 창업전략연구소는 단순한 관리 조직이 아니라,<br>
+          <strong>매장을 살리고 성장시키는 컨설팅 조직</strong>입니다.
+        </p>
       </div>
 
       <!-- 브랜드 특장점 -->
@@ -64,7 +101,7 @@ const strengths = [
   { icon: '🔥', title: '검증된 맛', desc: '2002 월드컵부터 시작, 쭈꾸미와 피자의 조합이 유명한 집' },
   { icon: '📊', title: '월 평균 매출 1억 5천', desc: '높은 매출을 오랜 시간 유지' },
   { icon: '⚡', title: '차별화된 조리시스템', desc: '5분 조리는 인건비 절감과 초보창업자를 위한 완성본' },
-  { icon: '💼', title: '비즈니스 사업모델', desc: '소자본 생계형 사업이 아닌 투자형 비즈니스 모델' },
+  { icon: '🧪', title: 'BS 창업전략연구소', desc: '수익이 나는 구조를 설계하는 전문 컨설팅 파트너' },
 ]
 
 const features = [
@@ -78,6 +115,25 @@ const features = [
 <style scoped>
 .about-section {
   background: var(--light-gray);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200% 100%;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .section-header {
@@ -94,26 +150,33 @@ const features = [
   margin-bottom: 12px;
 }
 
+.title-accent {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .section-subtitle {
   color: var(--gray);
   font-style: italic;
 }
 
-/* Strengths Grid */
+/* Strengths Grid - 강조 디자인 */
 .strengths-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .strength-card {
   background: white;
-  border-radius: 16px;
-  padding: 32px 24px;
+  border-radius: 20px;
+  padding: 36px 24px 30px;
   text-align: center;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -124,55 +187,109 @@ const features = [
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--primary);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary), #e05545);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.strength-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .strength-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(200, 57, 43, 0.25);
 }
 
 .strength-card:hover::before {
-  transform: scaleX(1);
+  opacity: 1;
+}
+
+.strength-card:hover h3,
+.strength-card:hover p,
+.strength-card:hover .strength-num {
+  color: white;
+}
+
+.strength-card:hover .strength-icon-wrap {
+  background: rgba(255,255,255,0.2);
+}
+
+.strength-num {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: rgba(200, 57, 43, 0.12);
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.strength-icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(200,57,43,0.1), rgba(244,162,53,0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: background 0.4s ease;
 }
 
 .strength-icon {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
+  font-size: 2.4rem;
 }
 
 .strength-card h3 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--dark);
+  transition: color 0.4s ease;
 }
 
 .strength-card p {
   font-size: 0.85rem;
   color: var(--gray);
   line-height: 1.7;
+  transition: color 0.4s ease;
 }
 
 /* Brand Intro */
 .brand-intro {
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   background: white;
-  border-radius: 16px;
-  padding: 48px 40px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  border-radius: 20px;
+  padding: 56px 48px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-intro::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  font-size: 12rem;
+  color: rgba(200, 57, 43, 0.06);
+  font-family: serif;
+  line-height: 1;
 }
 
 .brand-quote {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--primary);
   text-align: center;
   margin-bottom: 32px;
   line-height: 1.5;
+  position: relative;
 }
 
 .brand-text p {
@@ -188,10 +305,141 @@ const features = [
 
 .brand-bold {
   color: var(--dark) !important;
-  font-weight: 700;
-  font-size: 1.05rem !important;
+  font-weight: 800;
+  font-size: 1.15rem !important;
   text-align: center;
-  padding: 16px 0;
+  padding: 20px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* BS Section */
+.bs-section {
+  background: linear-gradient(135deg, #1a3a5c 0%, #0f2640 100%);
+  color: white;
+  border-radius: 24px;
+  padding: 60px 48px;
+  margin-bottom: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bs-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(100, 180, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.bs-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(244, 162, 53, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.bs-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #4a90e2, #5fa3f0);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.bs-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 28px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.bs-title span {
+  color: #5fa3f0;
+}
+
+.bs-content {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.bs-content p {
+  color: rgba(255,255,255,0.85);
+  line-height: 1.9;
+  font-size: 0.98rem;
+  margin-bottom: 14px;
+}
+
+.bs-content strong {
+  color: #5fa3f0;
+  font-weight: 700;
+}
+
+.bs-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bs-feature {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.bs-feature:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(95,163,240,0.4);
+  transform: translateY(-4px);
+}
+
+.bs-feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.bs-feature h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.bs-feature p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+.bs-conclusion {
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.8;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.bs-conclusion strong {
+  color: #5fa3f0;
 }
 
 /* Features Grid */
@@ -208,6 +456,7 @@ const features = [
   padding: 28px 24px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid var(--primary);
 }
 
 .feature-card:hover {
@@ -260,8 +509,17 @@ const features = [
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .bs-features {
+    grid-template-columns: 1fr;
+  }
   .brand-intro {
-    padding: 32px 24px;
+    padding: 36px 24px;
+  }
+  .bs-section {
+    padding: 40px 24px;
+  }
+  .bs-title {
+    font-size: 1.4rem;
   }
 }
 

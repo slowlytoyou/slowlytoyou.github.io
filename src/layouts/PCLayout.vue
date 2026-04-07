@@ -9,12 +9,14 @@
       </router-view>
     </main>
     <FooterSection />
+    <AnnouncementPopup />
   </div>
 </template>
 
 <script setup>
 import NavBar from '../components/NavBar.vue'
 import FooterSection from '../components/FooterSection.vue'
+import AnnouncementPopup from '../components/AnnouncementPopup.vue'
 </script>
 
 <style scoped>

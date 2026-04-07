@@ -26,7 +26,6 @@
           </div>
           <div class="menu-info">
             <h3 class="menu-name">{{ item.name }}</h3>
-            <p class="menu-price">{{ item.price }}</p>
           </div>
         </div>
       </div>
@@ -38,7 +37,6 @@
           </div>
           <div class="set-info">
             <h3>{{ item.name }}</h3>
-            <p class="menu-price">{{ item.price }}</p>
           </div>
         </div>
       </div>
@@ -50,7 +48,6 @@
           </div>
           <div class="side-info">
             <h4>{{ item.name }}</h4>
-            <p>{{ item.price }}</p>
           </div>
         </div>
       </div>

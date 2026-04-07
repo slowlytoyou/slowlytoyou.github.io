@@ -29,6 +29,8 @@
     <a href="#contact" class="floating-cta" @click.prevent="scrollTo('contact')">
       무료 상담 신청
     </a>
+
+    <AnnouncementPopup />
   </div>
 </template>
 
@@ -40,6 +42,7 @@ import MenuSection from '../components/MenuSection.vue'
 import FranchiseSection from '../components/FranchiseSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import FooterSection from '../components/FooterSection.vue'
+import AnnouncementPopup from '../components/AnnouncementPopup.vue'
 
 const menuOpen = ref(false)
 
