@@ -1,164 +1,50 @@
 <template>
   <section class="section" id="contact">
     <div class="container">
-      <div class="contact-wrap">
-        <div class="contact-info" v-animate="'fade-right'">
-          <p class="label-tag">상담 문의</p>
-          <h2 class="section-title">가맹 상담 신청</h2>
-          <p class="contact-desc">
-            가맹 상담부터 오픈 준비까지 전담 컨설턴트가 함께합니다.<br>
-            부담 없이 상담을 신청해 주세요.
-          </p>
-          <div class="info-items">
-            <a href="tel:01021323153" class="info-item info-link">
-              <span class="info-icon">📞</span>
-              <div>
-                <p class="info-label">가맹 상담 전화 (클릭하여 통화)</p>
-                <p class="info-value">010-2132-3153</p>
-              </div>
-            </a>
-            <a href="http://pf.kakao.com/_rwHdX/chat" target="_blank" rel="noopener" class="info-item info-link kakao-link">
-              <span class="info-icon">💬</span>
-              <div>
-                <p class="info-label">카카오톡 상담 (클릭하여 채팅)</p>
-                <p class="info-value">쭈나라꾸미 카카오톡 채널</p>
-              </div>
-            </a>
-            <div class="info-item">
-              <span class="info-icon">📍</span>
-              <div>
-                <p class="info-label">본사 주소</p>
-                <p class="info-value">대구시 동구 동부로 30길 102-3, 1208호</p>
-              </div>
+      <div class="contact-content" v-animate="'fade-up'">
+        <p class="label-tag">상담 문의</p>
+        <h2 class="section-title">가맹 상담 신청</h2>
+        <p class="contact-desc">
+          가맹 상담부터 오픈 준비까지 전담 컨설턴트가 함께합니다.<br>
+          부담 없이 상담을 시작해 주세요.
+        </p>
+
+        <div class="contact-actions">
+          <a href="http://pf.kakao.com/_rwHdX/chat" target="_blank" rel="noopener" class="action-card kakao-card">
+            <div class="action-icon kakao-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.73 1.74 5.15 4.4 6.56-.14.53-.5 1.93-.58 2.23-.09.37.14.37.3.27.12-.08 1.95-1.32 2.75-1.86.7.1 1.43.16 2.13.16 5.52 0 10-3.58 10-7.36S17.52 3 12 3z"/></svg>
             </div>
-            <div class="info-item">
-              <span class="info-icon">👤</span>
-              <div>
-                <p class="info-label">대표</p>
-                <p class="info-value">박철주</p>
-              </div>
-            </div>
-          </div>
+            <h3>카카오톡으로 상담하기</h3>
+            <p>클릭하면 카카오톡 채팅이 시작됩니다.<br>편하게 문의해주세요.</p>
+          </a>
+
+          <a href="tel:01021323153" class="action-card phone-card">
+            <div class="action-icon phone-icon">📞</div>
+            <h3>전화 상담</h3>
+            <p>010-2132-3153<br>클릭하여 바로 통화</p>
+          </a>
         </div>
 
-        <div class="contact-form-wrap" v-animate="'fade-left'">
-          <form @submit.prevent="handleSubmit" class="contact-form">
-            <h3 class="form-title">간편 상담 신청</h3>
-            <p class="form-sub">아래 정보를 입력해주시면 빠르게 연락드립니다.</p>
-
-            <input type="hidden" name="access_key" :value="accessKey" />
-            <input type="hidden" name="subject" value="[쭈나라꾸미] 새로운 가맹 상담 신청" />
-            <input type="hidden" name="from_name" value="쭈나라꾸미 홈페이지" />
-            <input type="checkbox" name="botcheck" style="display:none" />
-
-            <div class="form-group">
-              <label>이름 <span class="required">*</span></label>
-              <input v-model="form.name" name="name" type="text" required placeholder="홍길동" />
-            </div>
-
-            <div class="form-group">
-              <label>연락처 <span class="required">*</span></label>
-              <input v-model="form.phone" name="phone" type="tel" required placeholder="010-0000-0000" />
-            </div>
-
-            <div class="form-group">
-              <label>희망 지역</label>
-              <input v-model="form.region" name="region" type="text" placeholder="예: 대구 동구" />
-            </div>
-
-            <div class="form-group">
-              <label>창업 예상 시기</label>
-              <select v-model="form.timing" name="timing">
-                <option value="">선택해주세요</option>
-                <option>1개월 이내</option>
-                <option>3개월 이내</option>
-                <option>6개월 이내</option>
-                <option>미정</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>문의 내용</label>
-              <textarea v-model="form.message" name="message" rows="4" placeholder="문의하실 내용을 자유롭게 작성해주세요."></textarea>
-            </div>
-
-            <div class="form-group checkbox-group">
-              <label>
-                <input v-model="form.agree" type="checkbox" required />
-                <span>개인정보 수집·이용에 동의합니다. <strong>(필수)</strong></span>
-              </label>
-            </div>
-
-            <button type="submit" class="submit-btn" :disabled="loading">
-              {{ loading ? '전송 중...' : '상담 신청하기' }}
-            </button>
-
-            <p v-if="status === 'success'" class="form-message success">
-              ✅ 상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.
-            </p>
-            <p v-if="status === 'error'" class="form-message error">
-              ❌ 전송 실패. 잠시 후 다시 시도해주세요.
-            </p>
-          </form>
+        <div class="contact-info-bar">
+          <div class="info-item">
+            <span>📍</span>
+            <span>대구시 동구 동부로 30길 102-3, 1208호</span>
+          </div>
+          <div class="info-item">
+            <span>👤</span>
+            <span>대표 박철주</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup>
-import { ref, reactive } from 'vue'
-
-// Web3Forms Access Key - https://web3forms.com 에서 무료로 발급받아 교체
-const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY'
-
-const form = reactive({
-  name: '',
-  phone: '',
-  region: '',
-  timing: '',
-  message: '',
-  agree: false,
-})
-
-const loading = ref(false)
-const status = ref('')
-
-async function handleSubmit(e) {
-  loading.value = true
-  status.value = ''
-
-  const formData = new FormData(e.target)
-
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData,
-    })
-    const result = await response.json()
-
-    if (result.success) {
-      status.value = 'success'
-      Object.keys(form).forEach(k => {
-        form[k] = typeof form[k] === 'boolean' ? false : ''
-      })
-    } else {
-      status.value = 'error'
-    }
-  } catch {
-    status.value = 'error'
-  } finally {
-    loading.value = false
-  }
-}
-</script>
-
 <style scoped>
-.contact-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
-  align-items: start;
+.contact-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .label-tag {
@@ -173,191 +59,107 @@ async function handleSubmit(e) {
 .contact-desc {
   color: var(--gray);
   line-height: 1.8;
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 }
 
-.info-items {
+.contact-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.action-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  padding: 40px 28px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: inherit;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+}
+
+.kakao-card {
+  background: #FEE500;
+  box-shadow: 0 4px 24px rgba(254, 229, 0, 0.4);
+}
+
+.kakao-card:hover {
+  box-shadow: 0 12px 40px rgba(254, 229, 0, 0.5);
+}
+
+.phone-card {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 24px rgba(200, 57, 43, 0.3);
+}
+
+.phone-card:hover {
+  box-shadow: 0 12px 40px rgba(200, 57, 43, 0.45);
+}
+
+.action-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.kakao-icon {
+  background: rgba(60, 30, 30, 0.1);
+}
+
+.phone-icon {
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 2rem;
+}
+
+.action-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.kakao-card h3 {
+  color: #3C1E1E;
+}
+
+.action-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.kakao-card p {
+  color: #3C1E1E;
+}
+
+.contact-info-bar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-radius: 12px;
-  background: var(--light-gray);
-  transition: all 0.2s;
-}
-
-.info-link {
-  cursor: pointer;
-  color: inherit;
-}
-
-.info-link:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateX(4px);
-}
-
-.kakao-link:hover {
-  background: #FEE500;
-  color: #3C1E1E;
-}
-
-.info-link:hover .info-label,
-.info-link:hover .info-value {
-  color: white;
-}
-
-.info-icon {
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-
-.info-label {
-  font-size: 0.78rem;
-  color: var(--gray);
-}
-
-.info-value {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 2px;
-}
-
-/* Form */
-.contact-form-wrap {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-
-.contact-form {
-  padding: 36px 32px;
-}
-
-.form-title {
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin-bottom: 6px;
-  color: var(--dark);
-}
-
-.form-sub {
-  font-size: 0.88rem;
-  color: var(--gray);
-  margin-bottom: 24px;
-}
-
-.form-group {
-  margin-bottom: 18px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-
-.required {
-  color: var(--primary);
-}
-
-.form-group input[type="text"],
-.form-group input[type="tel"],
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-family: inherit;
-  transition: border-color 0.2s;
-  background: white;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.form-group textarea {
-  resize: vertical;
-}
-
-.checkbox-group label {
-  display: flex;
-  align-items: center;
   gap: 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--gray);
 }
 
-.checkbox-group input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--primary);
-  cursor: pointer;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 8px;
-}
-
-.submit-btn:hover:not(:disabled) {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200, 57, 43, 0.3);
-}
-
-.submit-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.form-message {
-  margin-top: 16px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.form-message.success {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-.form-message.error {
-  background: #ffebee;
-  color: #c62828;
-}
-
-@media (max-width: 900px) {
-  .contact-wrap {
+@media (max-width: 560px) {
+  .contact-actions {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 }
 </style>
