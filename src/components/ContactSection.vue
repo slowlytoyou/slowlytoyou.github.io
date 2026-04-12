@@ -17,6 +17,13 @@
                 <p class="info-value">010-2132-3153</p>
               </div>
             </a>
+            <a href="http://pf.kakao.com/_rwHdX/chat" target="_blank" rel="noopener" class="info-item info-link kakao-link">
+              <span class="info-icon">💬</span>
+              <div>
+                <p class="info-label">카카오톡 상담 (클릭하여 채팅)</p>
+                <p class="info-value">쭈나라꾸미 카카오톡 채널</p>
+              </div>
+            </a>
             <div class="info-item">
               <span class="info-icon">📍</span>
               <div>
@@ -194,6 +201,11 @@ async function handleSubmit(e) {
   background: var(--primary);
   color: white;
   transform: translateX(4px);
+}
+
+.kakao-link:hover {
+  background: #FEE500;
+  color: #3C1E1E;
 }
 
 .info-link:hover .info-label,

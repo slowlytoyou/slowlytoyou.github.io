@@ -43,7 +43,7 @@
       <!-- 가맹 비용 -->
       <div class="cost-table-wrap" v-animate="'fade-up'">
         <h3 class="cost-title">초기 투자비용 안내</h3>
-        <p class="cost-sub">70평 기준 / 단위: 만원</p>
+        <p class="cost-sub">70평 기준 / 단위: 만원 / 부가세 별도</p>
         <div class="cost-table">
           <div class="cost-row header">
             <span>항목</span>
@@ -57,7 +57,7 @@
           </div>
           <div class="cost-row total">
             <span>총합계</span>
-            <span class="cost-amount">23,300만원</span>
+            <span class="cost-amount">21,900</span>
             <span></span>
           </div>
         </div>
@@ -125,14 +125,14 @@ const steps = [
 ]
 
 const costRows = [
-  { item: '가맹비', amount: '2,000만원', note: '소멸성' },
-  { item: '교육비', amount: '1,000만원', note: '' },
-  { item: '보증금', amount: '500만원', note: '보증보험 가입시 현금 예치 없음' },
-  { item: '인테리어', amount: '15,400만원', note: '220만원(평당)' },
-  { item: '주방기기', amount: '2,500만원', note: '워크인냉장고 별도' },
-  { item: '의탁자', amount: '1,200만원', note: '' },
-  { item: '간판', amount: '600만원', note: '' },
-  { item: '로열티', amount: '100만원', note: '월 로열티 + 창업전략연구소 운영비' },
+  { item: '가맹비', amount: '2,000', note: '소멸성' },
+  { item: '교육비', amount: '1,000', note: '' },
+  { item: '보증금', amount: '500', note: '보증보험 가입시 현금 예치 없음' },
+  { item: '인테리어', amount: '14,000', note: '200만원(평당)' },
+  { item: '주방기기', amount: '2,500', note: '워크인냉장고 별도' },
+  { item: '의탁자', amount: '1,200', note: '' },
+  { item: '간판', amount: '600', note: '' },
+  { item: '로열티', amount: '100', note: '월 로열티 + 창업전략연구소 운영비' },
   { item: 'POS시스템/서빙로봇', amount: '-', note: '선택사항 (KT하이오더)' },
 ]
 

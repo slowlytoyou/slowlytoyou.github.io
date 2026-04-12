@@ -26,9 +26,14 @@
     <ContactSection />
     <FooterSection />
 
-    <a href="#contact" class="floating-cta" @click.prevent="scrollTo('contact')">
-      무료 상담 신청
-    </a>
+    <div class="floating-buttons">
+      <a href="http://pf.kakao.com/_rwHdX/chat" target="_blank" rel="noopener" class="floating-kakao" aria-label="카카오톡 상담">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.73 1.74 5.15 4.4 6.56-.14.53-.5 1.93-.58 2.23-.09.37.14.37.3.27.12-.08 1.95-1.32 2.75-1.86.7.1 1.43.16 2.13.16 5.52 0 10-3.58 10-7.36S17.52 3 12 3z"/></svg>
+      </a>
+      <a href="#contact" class="floating-cta" @click.prevent="scrollTo('contact')">
+        무료 상담 신청
+      </a>
+    </div>
 
     <AnnouncementPopup />
   </div>
@@ -166,11 +171,18 @@ function scrollTo(id) {
   color: white;
 }
 
-.floating-cta {
+.floating-buttons {
   position: fixed;
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 99;
+}
+
+.floating-cta {
   background: var(--primary);
   color: white;
   font-size: 0.95rem;
@@ -179,12 +191,28 @@ function scrollTo(id) {
   border-radius: 50px;
   box-shadow: 0 4px 20px rgba(200,57,43,0.5);
   white-space: nowrap;
-  z-index: 99;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .floating-cta:hover {
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(200,57,43,0.6);
+}
+
+.floating-kakao {
+  width: 50px;
+  height: 50px;
+  background: #FEE500;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.floating-kakao:hover {
+  transform: translateY(-2px);
 }
 </style>
