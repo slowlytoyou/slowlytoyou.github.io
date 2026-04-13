@@ -25,16 +25,6 @@
           </a>
         </div>
 
-        <div class="contact-info-bar">
-          <div class="info-item">
-            <span>📍</span>
-            <span>대구시 동구 동부로 30길 102-3, 1208호</span>
-          </div>
-          <div class="info-item">
-            <span>👤</span>
-            <span>대표 박철주</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>

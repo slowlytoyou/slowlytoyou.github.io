@@ -132,7 +132,7 @@ const costRows = [
   { item: '주방기기', amount: '2,500', note: '워크인냉장고 별도' },
   { item: '의탁자', amount: '1,200', note: '' },
   { item: '간판', amount: '600', note: '' },
-  { item: '로열티', amount: '100', note: '월 로열티 + 창업전략연구소 운영비' },
+  { item: '로열티', amount: '100', note: '월 로열티 + 창업전략연구소' },
   { item: 'POS시스템/서빙로봇', amount: '-', note: '선택사항 (KT하이오더)' },
 ]
 

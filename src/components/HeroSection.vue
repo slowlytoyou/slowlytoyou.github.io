@@ -2,7 +2,10 @@
   <section class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-tag animate-fade-down">대구경북 프리미엄 쭈꾸미 브랜드</p>
+      <div class="hero-brand animate-fade-down">
+        <p class="hero-brand-sub">대구·경북 프리미엄 쭈꾸미 브랜드</p>
+        <p class="hero-brand-name">쭈나라꾸미</p>
+      </div>
       <h1 class="hero-title animate-fade-up">거침없이 즐기는<br><span class="highlight">쭈꾸미 한상</span></h1>
       <p class="hero-desc animate-fade-up delay-1">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
       <div class="hero-buttons animate-fade-up delay-2">
@@ -11,9 +14,9 @@
       </div>
       <div class="hero-revenue animate-fade-up delay-3">
         <div class="revenue-box">
-          <span class="revenue-label">월 평균 매출</span>
+          <span class="revenue-label">연 평균 매출</span>
           <div class="revenue-num">
-            <span class="revenue-amount">1억 5천</span>
+            <span class="revenue-amount">1억 6천</span>
             <span class="revenue-unit">만원</span>
           </div>
         </div>
@@ -66,16 +69,29 @@ import heroBg from '../assets/식당 전경3.png'
   }
 }
 
-.hero-tag {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
+/* Brand header */
+.hero-brand {
+  margin-bottom: 24px;
+}
+
+.hero-brand-sub {
   font-size: 0.85rem;
-  font-weight: 700;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.hero-brand-name {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #FEE500;
+  text-shadow:
+    0 0 20px rgba(254, 229, 0, 0.5),
+    0 0 40px rgba(254, 229, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .hero-title {
@@ -138,11 +154,12 @@ import heroBg from '../assets/식당 전경3.png'
 }
 
 .revenue-box {
-  background: rgba(244, 162, 53, 0.15);
-  border: 2px solid var(--secondary);
+  background: rgba(254, 229, 0, 0.08);
+  border: 2px solid #FEE500;
   border-radius: 12px;
   padding: 16px 28px;
   text-align: center;
+  box-shadow: 0 0 20px rgba(254, 229, 0, 0.15);
 }
 
 .revenue-label {
@@ -161,7 +178,8 @@ import heroBg from '../assets/식당 전경3.png'
 .revenue-amount {
   font-size: 2rem;
   font-weight: 900;
-  color: var(--secondary);
+  color: #FEE500;
+  text-shadow: 0 0 12px rgba(254, 229, 0, 0.4);
 }
 
 .revenue-unit {
