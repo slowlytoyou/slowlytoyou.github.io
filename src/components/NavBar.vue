@@ -1,10 +1,13 @@
 <template>
   <header class="navbar" :class="{ scrolled: isDark }">
     <div class="container navbar-inner">
-      <router-link to="/" class="logo">
-        <span class="logo-icon">🐙</span>
-        <span class="logo-text">쭈나라꾸미</span>
-      </router-link>
+      <div class="logo-wrap">
+        <router-link to="/" class="logo">
+          <span class="logo-icon">🐙</span>
+          <span class="logo-text">쭈나라꾸미</span>
+        </router-link>
+        <span class="logo-tag">대구·경북 프리미엄 쭈꾸미 브랜드</span>
+      </div>
 
       <nav class="nav-links">
         <router-link to="/" exact-active-class="active">홈</router-link>
@@ -57,11 +60,35 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   height: 70px;
 }
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
   color: white;
+}
+
+.logo-tag {
+  display: inline-block;
+  background: rgba(200, 57, 43, 0.9);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .logo-tag {
+    display: none;
+  }
 }
 
 .logo-icon {

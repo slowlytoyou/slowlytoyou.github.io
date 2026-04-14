@@ -13,18 +13,31 @@
       <!-- 매장 사진 갤러리 -->
       <div class="store-gallery" v-animate="'fade-up'">
         <div class="gallery-main">
-          <img :src="store3" alt="쭈나라꾸미 표준 매장" />
-          <span class="gallery-label">표준 매장 외관</span>
+          <img :src="conceptA" alt="인테리어 컨셉A" />
+          <span class="gallery-label">인테리어 컨셉A</span>
         </div>
         <div class="gallery-sub">
           <div class="gallery-item">
-            <img :src="store1" alt="매장 간판" />
-            <span class="gallery-label">매장 간판</span>
+            <img :src="conceptB" alt="인테리어 컨셉B" />
+            <span class="gallery-label">인테리어 컨셉B</span>
           </div>
           <div class="gallery-item">
-            <img :src="interior1" alt="인테리어 조감도" />
-            <span class="gallery-label">인테리어 조감도</span>
+            <img :src="store3" alt="쭈나라꾸미 표준 매장 외관" />
+            <span class="gallery-label">표준 매장 외관</span>
           </div>
+        </div>
+      </div>
+
+      <!-- 인테리어 추가 디자인 -->
+      <div class="interior-grid" v-animate="'fade-up'">
+        <div class="interior-item">
+          <img :src="view05" alt="인테리어 디자인 01" />
+        </div>
+        <div class="interior-item">
+          <img :src="view08" alt="인테리어 디자인 02" />
+        </div>
+        <div class="interior-item">
+          <img :src="view17" alt="인테리어 디자인 03" />
         </div>
       </div>
 
@@ -106,9 +119,12 @@
 </template>
 
 <script setup>
-import store1 from '../assets/식당 전경1.jpg'
 import store3 from '../assets/식당 전경3.png'
-import interior1 from '../assets/식당 조감도.jpg'
+import conceptA from '../assets/view03.jpg'
+import conceptB from '../assets/view04.jpg'
+import view05 from '../assets/view05.jpg'
+import view08 from '../assets/view08.jpg'
+import view17 from '../assets/view17.jpg'
 import imgApron from '../assets/30 앞치마.jpg'
 import imgDish from '../assets/22 용기.jpg'
 import imgVan from '../assets/50 승합차-A.jpg'
@@ -169,9 +185,39 @@ const brandItems = [
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: 16px;
-  margin-bottom: 70px;
+  margin-bottom: 24px;
   border-radius: 16px;
   overflow: hidden;
+}
+
+.interior-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 70px;
+}
+
+.interior-item {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.interior-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.interior-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 560px) {
+  .interior-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .gallery-main,

@@ -2,10 +2,6 @@
   <section class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <div class="hero-brand animate-fade-down">
-        <p class="hero-brand-sub">대구·경북 프리미엄 쭈꾸미 브랜드</p>
-        <p class="hero-brand-name">쭈나라꾸미</p>
-      </div>
       <h1 class="hero-title animate-fade-up">거침없이 즐기는<br><span class="highlight">쭈꾸미 한상</span></h1>
       <p class="hero-desc animate-fade-up delay-1">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
       <div class="hero-buttons animate-fade-up delay-2">
@@ -16,8 +12,8 @@
         <div class="revenue-box">
           <span class="revenue-label">연 평균 매출</span>
           <div class="revenue-num">
-            <span class="revenue-amount">1억 6천</span>
-            <span class="revenue-unit">만원</span>
+            <span class="revenue-amount">16억</span>
+            <span class="revenue-unit">원</span>
           </div>
         </div>
       </div>
