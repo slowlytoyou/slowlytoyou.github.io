@@ -16,6 +16,7 @@
             <span class="revenue-unit">원</span>
           </div>
         </div>
+        <p class="hero-note">검증된 맛과 운영 시스템을 바탕으로 대형 매장형 가맹 모델을 제안합니다.</p>
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -25,7 +26,7 @@
 </template>
 
 <script setup>
-import heroBg from '../assets/식당 전경3.png'
+import heroBg from '../assets/식당 조감도.jpg'
 </script>
 
 <style scoped>
@@ -34,7 +35,7 @@ import heroBg from '../assets/식당 전경3.png'
   height: 100vh;
   min-height: 600px;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -43,58 +44,24 @@ import heroBg from '../assets/식당 전경3.png'
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.55) 50%,
-    rgba(0, 0, 0, 0.25) 100%
-  );
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 28%),
+    linear-gradient(100deg, rgba(7, 18, 44, 0.66) 0%, rgba(18, 56, 126, 0.34) 48%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   color: white;
-  max-width: 680px;
-  padding-top: 80px;
-}
-
-@media (min-width: 769px) {
-  .hero-content {
-    padding-top: 0;
-  }
-}
-
-/* Brand header */
-.hero-brand {
-  margin-bottom: 24px;
-}
-
-.hero-brand-sub {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
-}
-
-.hero-brand-name {
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #FEE500;
-  text-shadow:
-    0 0 20px rgba(254, 229, 0, 0.5),
-    0 0 40px rgba(254, 229, 0, 0.3),
-    2px 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.08em;
-  line-height: 1.2;
+  max-width: 720px;
+  text-shadow: 0 10px 30px rgba(5, 16, 41, 0.28);
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
   font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 20px;
+  line-height: 1.12;
+  margin-bottom: 18px;
   letter-spacing: -0.02em;
 }
 
@@ -103,17 +70,17 @@ import heroBg from '../assets/식당 전경3.png'
 }
 
 .hero-desc {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 40px;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 32px;
+  line-height: 1.75;
 }
 
 .hero-buttons {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .btn-pulse {
@@ -128,7 +95,7 @@ import heroBg from '../assets/식당 전경3.png'
 
 .btn-outline-white {
   display: inline-block;
-  border: 2px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.4);
   color: white;
   padding: 12px 34px;
   border-radius: 4px;
@@ -144,23 +111,24 @@ import heroBg from '../assets/식당 전경3.png'
 
 .hero-revenue {
   display: flex;
-  align-items: center;
-  gap: 40px;
+  align-items: flex-end;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .revenue-box {
-  background: rgba(254, 229, 0, 0.08);
-  border: 2px solid #FEE500;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 12px;
-  padding: 16px 28px;
+  padding: 16px 24px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(254, 229, 0, 0.15);
+  box-shadow: 0 16px 32px rgba(6, 18, 45, 0.2);
+  backdrop-filter: blur(8px);
 }
 
 .revenue-label {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.78);
   display: block;
   margin-bottom: 4px;
 }
@@ -180,7 +148,14 @@ import heroBg from '../assets/식당 전경3.png'
 
 .revenue-unit {
   font-size: 1rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.82);
+}
+
+.hero-note {
+  max-width: 300px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
 }
 
 /* Scroll indicator */
@@ -196,7 +171,7 @@ import heroBg from '../assets/식당 전경3.png'
   display: block;
   width: 24px;
   height: 40px;
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.7);
   border-radius: 12px;
   position: relative;
 }
@@ -209,7 +184,7 @@ import heroBg from '../assets/식당 전경3.png'
   transform: translateX(-50%);
   width: 4px;
   height: 8px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.85);
   border-radius: 2px;
   animation: scrollBounce 1.5s infinite;
 }
@@ -217,6 +192,21 @@ import heroBg from '../assets/식당 전경3.png'
 @keyframes scrollBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
   50% { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 680px;
+    background-position: 62% center;
+  }
+
+  .hero-content {
+    padding-top: 24px;
+  }
+
+  .hero-note {
+    max-width: none;
+  }
 }
 
 /* Animations */

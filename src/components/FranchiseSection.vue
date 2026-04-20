@@ -12,32 +12,25 @@
 
       <!-- 매장 사진 갤러리 -->
       <div class="store-gallery" v-animate="'fade-up'">
-        <div class="gallery-main">
+        <div class="gallery-feature">
           <img :src="conceptA" alt="인테리어 컨셉A" />
-          <span class="gallery-label">인테리어 컨셉A</span>
+          <span class="gallery-label">인테리어 컨셉 A</span>
         </div>
-        <div class="gallery-sub">
-          <div class="gallery-item">
-            <img :src="conceptB" alt="인테리어 컨셉B" />
-            <span class="gallery-label">인테리어 컨셉B</span>
-          </div>
-          <div class="gallery-item">
-            <img :src="store3" alt="쭈나라꾸미 표준 매장 외관" />
-            <span class="gallery-label">표준 매장 외관</span>
-          </div>
+        <div class="gallery-feature">
+          <img :src="conceptB" alt="인테리어 컨셉B" />
+          <span class="gallery-label">인테리어 컨셉 B</span>
         </div>
       </div>
 
-      <!-- 인테리어 추가 디자인 -->
+      <!-- 내부 사진 및 3D 도면 -->
       <div class="interior-grid" v-animate="'fade-up'">
-        <div class="interior-item">
-          <img :src="view05" alt="인테리어 디자인 01" />
-        </div>
-        <div class="interior-item">
-          <img :src="view08" alt="인테리어 디자인 02" />
-        </div>
-        <div class="interior-item">
-          <img :src="view17" alt="인테리어 디자인 03" />
+        <div
+          v-for="item in detailShots"
+          :key="item.title"
+          class="interior-item"
+        >
+          <img :src="item.img" :alt="item.title" />
+          <span class="gallery-label gallery-label--light">{{ item.title }}</span>
         </div>
       </div>
 
@@ -119,12 +112,12 @@
 </template>
 
 <script setup>
-import store3 from '../assets/식당 전경3.png'
-import conceptA from '../assets/view03.jpg'
-import conceptB from '../assets/view04.jpg'
+import conceptA from '../assets/식당 조감도.jpg'
+import conceptB from '../assets/식당 전경3.png'
+import view03 from '../assets/view03.jpg'
+import view04 from '../assets/view04.jpg'
 import view05 from '../assets/view05.jpg'
 import view08 from '../assets/view08.jpg'
-import view17 from '../assets/view17.jpg'
 import imgApron from '../assets/30 앞치마.jpg'
 import imgDish from '../assets/22 용기.jpg'
 import imgVan from '../assets/50 승합차-A.jpg'
@@ -159,6 +152,13 @@ const brandItems = [
   { label: '포장 용기', img: imgPackage },
   { label: '오픈 현수막', img: imgBanner },
 ]
+
+const detailShots = [
+  { title: '내부 투시도', img: view05 },
+  { title: '표준 외관 3D 시안', img: view08 },
+  { title: '3D 평면도', img: view03 },
+  { title: '3D 배치도', img: view04 },
+]
 </script>
 
 <style scoped>
@@ -183,77 +183,47 @@ const brandItems = [
 /* 매장 갤러리 */
 .store-gallery {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 24px;
-  border-radius: 16px;
-  overflow: hidden;
 }
 
 .interior-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 70px;
 }
 
+.gallery-feature,
 .interior-item {
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  position: relative;
+  background: white;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
+.gallery-feature {
+  aspect-ratio: 16/10;
+}
+
+.gallery-feature img,
 .interior-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease;
 }
 
+.gallery-feature:hover img,
 .interior-item:hover img {
   transform: scale(1.05);
 }
 
-@media (max-width: 560px) {
-  .interior-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.gallery-main,
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.gallery-main img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.gallery-main:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-sub {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 172px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
+.interior-item {
+  aspect-ratio: 4/3;
 }
 
 .gallery-label {
@@ -266,6 +236,26 @@ const brandItems = [
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 20px;
+}
+
+.gallery-label--light {
+  background: rgba(12, 19, 40, 0.72);
+}
+
+@media (max-width: 900px) {
+  .store-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .interior-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .interior-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 가맹 절차 */
