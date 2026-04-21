@@ -9,7 +9,21 @@
 
       <div class="strengths-grid">
         <div v-for="(item, i) in strengths" :key="i" class="strength-card" :class="`strength-${i}`" v-animate:[i*120]="'fade-up'">
-          <div class="strength-icon-wrap">
+          <div v-if="item.isRevenue" class="strength-revenue-seal" aria-label="연 매출 16억">
+            <img :src="dishSeal" alt="" class="strength-revenue-image" />
+            <svg viewBox="0 0 180 180" class="strength-revenue-svg" aria-hidden="true">
+              <defs>
+                <path id="about-revenue-arc" d="M 34 104 A 56 56 0 0 1 146 104" />
+              </defs>
+              <text class="strength-seal-arc">
+                <textPath href="#about-revenue-arc" startOffset="50%" text-anchor="middle">연 매 출</textPath>
+              </text>
+            </svg>
+            <div class="strength-seal-center">
+              <span class="strength-seal-value">16억</span>
+            </div>
+          </div>
+          <div v-else class="strength-icon-wrap">
             <span class="strength-icon">{{ item.icon }}</span>
           </div>
           <div class="strength-num">{{ String(i + 1).padStart(2, '0') }}</div>
@@ -97,10 +111,11 @@
 <script setup>
 import storeImg from '../assets/식당 전경2.jpg'
 import conceptB from '../assets/식당 전경3.png'
+import dishSeal from '../assets/dish-seal.png'
 
 const strengths = [
   { icon: '🔥', title: '검증된 맛', desc: '2002 월드컵부터 시작, 쭈꾸미와 피자의 조합이 유명한 집' },
-  { icon: '📊', title: '연 평균 매출 16억', desc: '25년 동안 안정적인 집객력과 매출 구조를 유지해온 검증된 브랜드입니다.' },
+  { icon: '📊', title: '연 매출 16억', desc: '25년 동안 안정적인 집객력과 매출 구조를 유지해온 검증된 브랜드입니다.', isRevenue: true },
   { icon: '⚡', title: '차별화된 조리시스템', desc: '5분 조리는 인건비 절감과 초보창업자를 위한 완성본' },
   { icon: '🧪', title: 'BS 창업전략연구소', desc: '수익이 나는 구조를 설계하는 전문 컨설팅 파트너' },
 ]
@@ -220,21 +235,7 @@ const features = [
 }
 
 .strength-card.strength-1 {
-  background: linear-gradient(135deg, #fff4ef, #ffffff);
-  border: 1px solid rgba(200, 57, 43, 0.12);
-  box-shadow: 0 14px 34px rgba(200, 57, 43, 0.12);
-}
-
-.strength-card.strength-1 .strength-icon-wrap {
-  background: linear-gradient(135deg, rgba(200,57,43,0.16), rgba(244,162,53,0.24));
-}
-
-.strength-card.strength-1 .strength-num {
-  color: rgba(200, 57, 43, 0.18);
-}
-
-.strength-card.strength-1 h3 {
-  color: var(--primary);
+  background: white;
 }
 
 .strength-num {
@@ -258,6 +259,50 @@ const features = [
   justify-content: center;
   margin: 0 auto 20px;
   transition: background 0.4s ease;
+}
+
+.strength-revenue-seal {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.strength-revenue-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.strength-revenue-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.strength-seal-arc {
+  fill: rgba(200, 57, 43, 0.96);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.34em;
+}
+
+.strength-seal-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.strength-seal-value {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.05em;
 }
 
 .strength-icon {

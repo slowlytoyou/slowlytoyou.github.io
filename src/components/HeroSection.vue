@@ -5,14 +5,18 @@
       <h1 class="hero-title animate-fade-up"><span class="hero-title-line">거침없이 즐기는</span><br><span class="highlight">쭈꾸미 한상</span></h1>
       <div class="hero-summary animate-fade-up delay-1">
         <p class="hero-desc">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
-        <div class="hero-buttons">
-          <router-link to="/franchise" class="hero-cta">가맹정보보기</router-link>
-        </div>
-        <div class="revenue-box">
-          <span class="revenue-label">연 평균 매출</span>
-          <div class="revenue-num">
-            <span class="revenue-amount">16억</span>
-            <span class="revenue-unit">원</span>
+        <div class="revenue-seal" aria-label="연 매출 16억">
+          <img :src="dishSeal" alt="" class="revenue-seal-image" />
+          <svg viewBox="0 0 180 180" class="revenue-seal-svg" aria-hidden="true">
+            <defs>
+              <path id="hero-revenue-arc" d="M 34 104 A 56 56 0 0 1 146 104" />
+            </defs>
+            <text class="seal-arc-text">
+              <textPath href="#hero-revenue-arc" startOffset="50%" text-anchor="middle">연 매 출</textPath>
+            </text>
+          </svg>
+          <div class="seal-center">
+            <span class="seal-value">16억</span>
           </div>
         </div>
       </div>
@@ -25,6 +29,7 @@
 
 <script setup>
 import heroBg from '../assets/식당 조감도 hero.jpg'
+import dishSeal from '../assets/dish-seal.png'
 </script>
 
 <style scoped>
@@ -92,62 +97,49 @@ import heroBg from '../assets/식당 조감도 hero.jpg'
   margin-bottom: 12px;
 }
 
-.hero-buttons {
+.revenue-seal {
+  position: relative;
+  width: 176px;
+  height: 176px;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 18px 32px rgba(8, 18, 40, 0.18));
+}
+
+.revenue-seal-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.revenue-seal-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seal-arc-text {
+  fill: rgba(200, 57, 43, 0.95);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.42em;
+}
+
+.seal-center {
+  position: absolute;
+  inset: 0;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.hero-cta {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
-  padding: 14px 34px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 700;
-  box-shadow: 0 18px 40px rgba(200, 57, 43, 0.28);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-.hero-cta:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 22px 42px rgba(169, 50, 38, 0.34);
-}
-
-.revenue-box {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  padding: 16px 24px;
-  text-align: center;
-  box-shadow: 0 18px 40px rgba(7, 18, 44, 0.18);
-  backdrop-filter: blur(10px);
-  flex: 0 0 auto;
-}
-
-.revenue-label {
-  font-size: 0.8rem;
-  color: rgba(26, 26, 26, 0.66);
-  display: block;
-  margin-bottom: 4px;
-}
-
-.revenue-num {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.revenue-amount {
-  font-size: 2.2rem;
+.seal-value {
+  font-size: 2.8rem;
   font-weight: 900;
   color: var(--primary);
-}
-
-.revenue-unit {
-  font-size: 1rem;
-  color: rgba(26, 26, 26, 0.78);
+  letter-spacing: -0.05em;
 }
 
 /* Scroll indicator */
@@ -209,16 +201,21 @@ import heroBg from '../assets/식당 조감도 hero.jpg'
 
   .hero-summary {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 18px;
   }
 
-  .hero-buttons {
-    justify-content: flex-start;
+  .hero-desc {
+    text-align: center;
   }
 
-  .revenue-box {
-    padding: 16px 20px;
+  .revenue-seal {
+    width: 156px;
+    height: 156px;
+  }
+
+  .seal-value {
+    font-size: 2.5rem;
   }
 }
 

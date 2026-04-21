@@ -3,8 +3,7 @@
     <div class="container navbar-inner">
       <div class="logo-wrap">
         <router-link to="/" class="logo">
-          <span class="logo-icon">🐙</span>
-          <span class="logo-text">쭈나라꾸미</span>
+          <img :src="brandLogo" alt="쭈나라꾸미 로고" class="logo-image" />
         </router-link>
         <span class="logo-tag">대구·경북 프리미엄 쭈꾸미 브랜드</span>
       </div>
@@ -20,6 +19,10 @@
   </header>
 </template>
 
+<script setup>
+import brandLogo from '../assets/로고-투명.png'
+</script>
+
 <style scoped>
 .navbar {
   position: fixed;
@@ -32,8 +35,8 @@
 }
 
 .navbar.scrolled {
-  background: rgba(26, 26, 26, 0.97);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
 }
 
 .navbar-inner {
@@ -52,8 +55,14 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: white;
+}
+
+.logo-image {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.08));
 }
 
 .logo-tag {
@@ -72,16 +81,10 @@
   .logo-tag {
     display: none;
   }
-}
 
-.logo-icon {
-  font-size: 1.6rem;
-}
-
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  .logo-image {
+    height: 38px;
+  }
 }
 
 .nav-links {
@@ -91,7 +94,7 @@
 }
 
 .nav-links a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(26, 26, 26, 0.74);
   font-size: 0.95rem;
   font-weight: 600;
   transition: color 0.2s;
@@ -111,7 +114,7 @@
 }
 
 .nav-links a:hover {
-  color: white;
+  color: var(--dark);
 }
 
 .nav-links a:hover::after,
@@ -120,7 +123,7 @@
 }
 
 .nav-links a.active {
-  color: white;
+  color: var(--dark);
 }
 
 .nav-cta {

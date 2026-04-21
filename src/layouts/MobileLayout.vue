@@ -3,8 +3,7 @@
     <header class="mobile-header">
       <div class="mobile-header-inner">
         <div class="logo">
-          <span>🐙</span>
-          <span>쭈나라꾸미</span>
+          <img :src="brandLogo" alt="쭈나라꾸미 로고" class="mobile-logo-image" />
         </div>
         <button class="mobile-menu-btn" @click="menuOpen = !menuOpen" aria-label="메뉴">
           <span :class="{ open: menuOpen }"></span>
@@ -48,6 +47,7 @@ import FranchiseSection from '../components/FranchiseSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import FooterSection from '../components/FooterSection.vue'
 import AnnouncementPopup from '../components/AnnouncementPopup.vue'
+import brandLogo from '../assets/로고-투명.png'
 
 const menuOpen = ref(false)
 
@@ -67,8 +67,8 @@ function scrollTo(id) {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(26, 26, 26, 0.97);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
 .mobile-header-inner {
@@ -82,10 +82,13 @@ function scrollTo(id) {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 900;
+}
+
+.mobile-logo-image {
+  display: block;
+  height: 34px;
+  width: auto;
+  object-fit: contain;
 }
 
 .mobile-menu-btn {
@@ -109,7 +112,7 @@ function scrollTo(id) {
   display: block;
   width: 22px;
   height: 2px;
-  background: white;
+  background: var(--dark);
   transition: all 0.3s;
   position: relative;
 }
@@ -146,7 +149,7 @@ function scrollTo(id) {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-  background: rgba(26, 26, 26, 0.98);
+  background: rgba(255, 255, 255, 0.99);
 }
 
 .mobile-nav.open {
@@ -156,10 +159,10 @@ function scrollTo(id) {
 .mobile-nav a {
   display: block;
   padding: 14px 24px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(26, 26, 26, 0.82);
   font-size: 1rem;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   transition: color 0.2s;
 }
 
@@ -168,7 +171,7 @@ function scrollTo(id) {
 }
 
 .mobile-nav a:hover {
-  color: white;
+  color: var(--dark);
 }
 
 .floating-buttons {

@@ -73,7 +73,7 @@
 
       <!-- 본사 지원 -->
       <div class="support-section" v-animate="'fade-up'">
-        <h3 class="cost-title">본사 지원 시스템</h3>
+        <h3 class="cost-title">운영 시스템</h3>
         <div class="support-cards">
           <div class="support-card">
             <span class="support-icon">🔍</span>
@@ -91,7 +91,6 @@
       <!-- 브랜드 아이덴티티 -->
       <div class="brand-identity" v-animate="'fade-up'">
         <h3 class="cost-title">브랜드 아이덴티티 패키지</h3>
-        <p class="brand-sub">가맹 계약 시 본사가 일괄 제공하는 브랜드 패키지입니다.</p>
         <div class="brand-grid">
           <div v-for="b in brandItems" :key="b.label" class="brand-card">
             <div class="brand-img">
@@ -122,7 +121,7 @@ import imgApron from '../assets/30 앞치마.jpg'
 import imgDish from '../assets/22 용기.jpg'
 import imgVan from '../assets/50 승합차-A.jpg'
 import imgPackage from '../assets/쭈꾸미포장.jpg'
-import imgBanner from '../assets/15 오픈현수막.jpg'
+import imgBanner from '../assets/16 오픈후현수막.jpg'
 
 const steps = [
   { title: '상담 신청', desc: '온라인 또는 전화 상담' },
@@ -136,7 +135,7 @@ const steps = [
 const costRows = [
   { item: '가맹비', amount: '2,000', note: '소멸성' },
   { item: '교육비', amount: '1,000', note: '' },
-  { item: '보증금', amount: '500', note: '보증보험 가입시 현금 예치 없음' },
+  { item: '보증금', amount: '500', note: '보증보험 대체 가능' },
   { item: '인테리어', amount: '14,000', note: '200만원(평당)' },
   { item: '주방기기', amount: '2,500', note: '워크인냉장고 별도' },
   { item: '의탁자', amount: '1,200', note: '' },
