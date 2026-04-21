@@ -38,7 +38,7 @@
       </div>
 
       <!-- BS 창업전략연구소 전용 섹션 -->
-      <div class="bs-section" v-animate="'fade-up'">
+      <div class="bs-section" v-animate="'fade-up'" :style="{ backgroundImage: `linear-gradient(135deg, rgba(10, 29, 51, 0.9), rgba(13, 35, 61, 0.78)), url(${conceptB})` }">
         <div class="bs-badge">BS 창업전략연구소</div>
         <h3 class="bs-title">매장을 살리고 성장시키는 <span>컨설팅 조직</span></h3>
         <div class="bs-content">
@@ -96,10 +96,11 @@
 
 <script setup>
 import storeImg from '../assets/식당 전경2.jpg'
+import conceptB from '../assets/식당 전경3.png'
 
 const strengths = [
   { icon: '🔥', title: '검증된 맛', desc: '2002 월드컵부터 시작, 쭈꾸미와 피자의 조합이 유명한 집' },
-  { icon: '📊', title: '월 평균 매출 1억 5천', desc: '높은 매출을 오랜 시간 유지' },
+  { icon: '📊', title: '연 평균 매출 16억', desc: '25년 동안 안정적인 집객력과 매출 구조를 유지해온 검증된 브랜드입니다.' },
   { icon: '⚡', title: '차별화된 조리시스템', desc: '5분 조리는 인건비 절감과 초보창업자를 위한 완성본' },
   { icon: '🧪', title: 'BS 창업전략연구소', desc: '수익이 나는 구조를 설계하는 전문 컨설팅 파트너' },
 ]
@@ -218,6 +219,24 @@ const features = [
   background: rgba(255,255,255,0.2);
 }
 
+.strength-card.strength-1 {
+  background: linear-gradient(135deg, #fff4ef, #ffffff);
+  border: 1px solid rgba(200, 57, 43, 0.12);
+  box-shadow: 0 14px 34px rgba(200, 57, 43, 0.12);
+}
+
+.strength-card.strength-1 .strength-icon-wrap {
+  background: linear-gradient(135deg, rgba(200,57,43,0.16), rgba(244,162,53,0.24));
+}
+
+.strength-card.strength-1 .strength-num {
+  color: rgba(200, 57, 43, 0.18);
+}
+
+.strength-card.strength-1 h3 {
+  color: var(--primary);
+}
+
 .strength-num {
   position: absolute;
   top: 16px;
@@ -314,7 +333,8 @@ const features = [
 
 /* BS Section */
 .bs-section {
-  background: linear-gradient(135deg, #1a3a5c 0%, #0f2640 100%);
+  background-size: cover;
+  background-position: center;
   color: white;
   border-radius: 24px;
   padding: 60px 48px;

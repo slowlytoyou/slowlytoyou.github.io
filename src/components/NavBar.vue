@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar" :class="{ scrolled: isDark }">
+  <header class="navbar scrolled">
     <div class="container navbar-inner">
       <div class="logo-wrap">
         <router-link to="/" class="logo">
@@ -19,23 +19,6 @@
     </div>
   </header>
 </template>
-
-<script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-const isScrolled = ref(false)
-
-const isDark = computed(() => route.path !== '/' || isScrolled.value)
-
-function handleScroll() {
-  isScrolled.value = window.scrollY > 20
-}
-
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
-</script>
 
 <style scoped>
 .navbar {

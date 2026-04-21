@@ -2,13 +2,12 @@
   <section class="hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1 class="hero-title animate-fade-up">거침없이 즐기는<br><span class="highlight">쭈꾸미 한상</span></h1>
-      <p class="hero-desc animate-fade-up delay-1">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
-      <div class="hero-buttons animate-fade-up delay-2">
-        <router-link to="/contact" class="btn-primary btn-pulse">가맹 상담 신청</router-link>
-        <router-link to="/franchise" class="btn-outline-white">가맹 정보 보기</router-link>
-      </div>
-      <div class="hero-revenue animate-fade-up delay-3">
+      <h1 class="hero-title animate-fade-up"><span class="hero-title-line">거침없이 즐기는</span><br><span class="highlight">쭈꾸미 한상</span></h1>
+      <div class="hero-summary animate-fade-up delay-1">
+        <p class="hero-desc">맛은 25년 동안 검증 됐고!<br>구조는 프랜차이즈로 완성됐다!</p>
+        <div class="hero-buttons">
+          <router-link to="/franchise" class="hero-cta">가맹정보보기</router-link>
+        </div>
         <div class="revenue-box">
           <span class="revenue-label">연 평균 매출</span>
           <div class="revenue-num">
@@ -16,7 +15,6 @@
             <span class="revenue-unit">원</span>
           </div>
         </div>
-        <p class="hero-note">검증된 맛과 운영 시스템을 바탕으로 대형 매장형 가맹 모델을 제안합니다.</p>
       </div>
     </div>
     <div class="hero-scroll-indicator">
@@ -26,14 +24,14 @@
 </template>
 
 <script setup>
-import heroBg from '../assets/식당 조감도.jpg'
+import heroBg from '../assets/식당 조감도 hero.jpg'
 </script>
 
 <style scoped>
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 600px;
+  min-height: 720px;
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -45,24 +43,34 @@ import heroBg from '../assets/식당 조감도.jpg'
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 28%),
-    linear-gradient(100deg, rgba(7, 18, 44, 0.66) 0%, rgba(18, 56, 126, 0.34) 48%, rgba(255, 255, 255, 0.08) 100%);
+    linear-gradient(90deg, rgba(18, 45, 117, 0.16) 0%, rgba(18, 45, 117, 0.04) 24%, rgba(255, 255, 255, 0) 48%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(4, 10, 24, 0.04) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   color: white;
-  max-width: 720px;
-  text-shadow: 0 10px 30px rgba(5, 16, 41, 0.28);
+  width: min(760px, calc(100% - 48px));
+  max-width: 760px;
+  margin-top: -244px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  text-shadow: 0 10px 30px rgba(5, 16, 41, 0.2);
+  text-align: center;
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-size: clamp(2.8rem, 5.6vw, 4.8rem);
   font-weight: 900;
   line-height: 1.12;
   margin-bottom: 18px;
   letter-spacing: -0.02em;
+}
+
+.hero-title-line {
+  white-space: nowrap;
 }
 
 .highlight {
@@ -70,65 +78,57 @@ import heroBg from '../assets/식당 조감도.jpg'
 }
 
 .hero-desc {
-  font-size: 1.08rem;
-  color: rgba(255,255,255,0.92);
-  margin-bottom: 32px;
-  line-height: 1.75;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hero-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
+  justify-content: center;
 }
 
-.btn-pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(200, 57, 43, 0.6); }
-  70% { box-shadow: 0 0 0 14px rgba(200, 57, 43, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(200, 57, 43, 0); }
-}
-
-.btn-outline-white {
+.hero-cta {
   display: inline-block;
-  border: 1px solid rgba(255,255,255,0.4);
+  background: var(--primary);
   color: white;
-  padding: 12px 34px;
-  border-radius: 4px;
+  padding: 14px 34px;
+  border-radius: 999px;
   font-size: 1rem;
   font-weight: 700;
-  transition: all 0.2s;
+  box-shadow: 0 18px 40px rgba(200, 57, 43, 0.28);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-.btn-outline-white:hover {
-  background: white;
-  color: var(--dark);
-}
-
-.hero-revenue {
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-  flex-wrap: wrap;
+.hero-cta:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 42px rgba(169, 50, 38, 0.34);
 }
 
 .revenue-box {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
   padding: 16px 24px;
   text-align: center;
-  box-shadow: 0 16px 32px rgba(6, 18, 45, 0.2);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 40px rgba(7, 18, 44, 0.18);
+  backdrop-filter: blur(10px);
+  flex: 0 0 auto;
 }
 
 .revenue-label {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.78);
+  color: rgba(26, 26, 26, 0.66);
   display: block;
   margin-bottom: 4px;
 }
@@ -140,22 +140,14 @@ import heroBg from '../assets/식당 조감도.jpg'
 }
 
 .revenue-amount {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
-  color: #FEE500;
-  text-shadow: 0 0 12px rgba(254, 229, 0, 0.4);
+  color: var(--primary);
 }
 
 .revenue-unit {
   font-size: 1rem;
-  color: rgba(255,255,255,0.82);
-}
-
-.hero-note {
-  max-width: 300px;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.82);
+  color: rgba(26, 26, 26, 0.78);
 }
 
 /* Scroll indicator */
@@ -196,16 +188,37 @@ import heroBg from '../assets/식당 조감도.jpg'
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 680px;
-    background-position: 62% center;
+    min-height: 760px;
+    background-position: center center;
   }
 
   .hero-content {
-    padding-top: 24px;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    margin-top: -156px;
   }
 
-  .hero-note {
-    max-width: none;
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 3.4rem);
+  }
+
+  .hero-desc {
+    max-width: 320px;
+    text-align: left;
+  }
+
+  .hero-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .revenue-box {
+    padding: 16px 20px;
   }
 }
 

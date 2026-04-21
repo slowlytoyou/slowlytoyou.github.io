@@ -116,7 +116,7 @@ import conceptA from '../assets/식당 조감도.jpg'
 import conceptB from '../assets/식당 전경3.png'
 import view03 from '../assets/view03.jpg'
 import view04 from '../assets/view04.jpg'
-import view05 from '../assets/view05.jpg'
+import view17 from '../assets/view17.jpg'
 import view08 from '../assets/view08.jpg'
 import imgApron from '../assets/30 앞치마.jpg'
 import imgDish from '../assets/22 용기.jpg'
@@ -154,8 +154,8 @@ const brandItems = [
 ]
 
 const detailShots = [
-  { title: '내부 투시도', img: view05 },
-  { title: '표준 외관 3D 시안', img: view08 },
+  { title: '매장 외관', img: view17 },
+  { title: '내부 3D시안', img: view08 },
   { title: '3D 평면도', img: view03 },
   { title: '3D 배치도', img: view04 },
 ]
