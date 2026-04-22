@@ -58,7 +58,7 @@ import dishSeal from '../assets/dish-seal.png'
   color: white;
   width: min(760px, calc(100% - 48px));
   max-width: 760px;
-  margin-top: -244px;
+  margin-top: -204px;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
@@ -121,7 +121,7 @@ import dishSeal from '../assets/dish-seal.png'
 }
 
 .seal-arc-text {
-  fill: rgba(200, 57, 43, 0.95);
+  fill: rgba(26, 26, 26, 0.92);
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.42em;

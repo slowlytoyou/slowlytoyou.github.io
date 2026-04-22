@@ -2,7 +2,6 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="contact-content" v-animate="'fade-up'">
-        <p class="label-tag">상담 문의</p>
         <h2 class="section-title">가맹 상담 신청</h2>
         <p class="contact-desc">
           가맹 상담부터 오픈 준비까지 전담 컨설턴트가 함께합니다.<br>

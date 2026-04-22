@@ -104,14 +104,14 @@
       <!-- CTA -->
       <div class="cta-box" v-animate="'scale'">
         <p>지금 바로 상담을 신청하고 성공 창업의 첫 걸음을 내딛으세요.</p>
-        <router-link to="/contact" class="btn-primary">무료 상담 신청하기</router-link>
+        <router-link to="/contact" class="btn-primary">상담 신청</router-link>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import conceptA from '../assets/식당 조감도.jpg'
+import conceptA from '../assets/식당 조감도 hero-cutout.png'
 import conceptB from '../assets/식당 전경3.png'
 import view03 from '../assets/view03.jpg'
 import view04 from '../assets/view04.jpg'
@@ -214,6 +214,11 @@ const detailShots = [
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+}
+
+.store-gallery .gallery-feature:first-child img {
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .gallery-feature:hover img,

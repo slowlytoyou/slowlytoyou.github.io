@@ -284,7 +284,7 @@ const features = [
 }
 
 .strength-seal-arc {
-  fill: rgba(200, 57, 43, 0.96);
+  fill: rgba(26, 26, 26, 0.92);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.34em;

@@ -4,8 +4,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo">
-            <span>🐙</span>
-            <span class="logo-text">쭈나라꾸미</span>
+            <img :src="footerLogo" alt="쭈나라꾸미 로고" class="footer-logo-image" />
           </div>
           <p>맛은 25년 동안 검증 됐고! 구조는 프랜차이즈로 완성됐다!</p>
           <p class="copyright">© 2025 주)청염 All rights reserved.</p>
@@ -22,7 +21,7 @@
           <div>
             <h4>고객센터</h4>
             <a href="tel:01021323153">010-2132-3153</a>
-            <span>대구시 동구 동부로 30길 102-3, 1208호</span>
+            <span>주)청염 - 대구시 동구 동부로 30길 102-3, 1208호</span>
           </div>
         </div>
       </div>
@@ -32,6 +31,10 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import footerLogo from '../assets/로고-투명.png'
+</script>
 
 <style scoped>
 .footer {
@@ -52,14 +55,18 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: white;
+  padding: 8px 12px;
+  width: fit-content;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
   margin-bottom: 12px;
-  font-size: 1.2rem;
 }
 
-.logo-text {
-  font-weight: 900;
+.footer-logo-image {
+  display: block;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-brand p {
