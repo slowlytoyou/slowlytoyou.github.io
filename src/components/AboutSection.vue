@@ -13,15 +13,18 @@
             <img :src="dishSeal" alt="" class="strength-revenue-image" />
             <svg viewBox="0 0 180 180" class="strength-revenue-svg" aria-hidden="true">
               <defs>
-                <path id="about-revenue-arc" d="M 34 104 A 56 56 0 0 1 146 104" />
+                <linearGradient id="aboutRevenueGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#4f72ff" />
+                  <stop offset="55%" stop-color="#8457e8" />
+                  <stop offset="100%" stop-color="#ff5cb8" />
+                </linearGradient>
+                <path id="about-revenue-arc" d="M 103 18 A 69 69 0 0 1 163 76" />
               </defs>
               <text class="strength-seal-arc">
-                <textPath href="#about-revenue-arc" startOffset="50%" text-anchor="middle">연 매 출</textPath>
+                <textPath href="#about-revenue-arc" startOffset="36%" text-anchor="middle">연 매 출</textPath>
               </text>
+              <text x="90" y="108" text-anchor="middle" class="strength-seal-value">16억!</text>
             </svg>
-            <div class="strength-seal-center">
-              <span class="strength-seal-value">16억</span>
-            </div>
           </div>
           <div v-else class="strength-icon-wrap">
             <span class="strength-icon">{{ item.icon }}</span>
@@ -281,27 +284,20 @@ const features = [
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: rotate(-24deg);
 }
 
 .strength-seal-arc {
   fill: rgba(26, 26, 26, 0.92);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.34em;
-}
-
-.strength-seal-center {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  letter-spacing: 0.14em;
 }
 
 .strength-seal-value {
-  font-size: 1.35rem;
+  fill: url(#aboutRevenueGradient);
+  font-size: 3.52rem;
   font-weight: 900;
-  color: var(--primary);
   letter-spacing: -0.05em;
 }
 

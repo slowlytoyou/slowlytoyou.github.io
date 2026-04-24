@@ -9,15 +9,18 @@
           <img :src="dishSeal" alt="" class="revenue-seal-image" />
           <svg viewBox="0 0 180 180" class="revenue-seal-svg" aria-hidden="true">
             <defs>
-              <path id="hero-revenue-arc" d="M 34 104 A 56 56 0 0 1 146 104" />
+              <linearGradient id="heroRevenueGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stop-color="#4f72ff" />
+                <stop offset="55%" stop-color="#8457e8" />
+                <stop offset="100%" stop-color="#ff5cb8" />
+              </linearGradient>
+              <path id="heroRevenueArc" d="M 104 17 A 68 68 0 0 1 163 75" />
             </defs>
             <text class="seal-arc-text">
-              <textPath href="#hero-revenue-arc" startOffset="50%" text-anchor="middle">연 매 출</textPath>
+              <textPath href="#heroRevenueArc" startOffset="31%" text-anchor="middle">연 매 출</textPath>
             </text>
+            <text x="90" y="108" text-anchor="middle" class="seal-value">16억!</text>
           </svg>
-          <div class="seal-center">
-            <span class="seal-value">16억</span>
-          </div>
         </div>
       </div>
     </div>
@@ -118,27 +121,20 @@ import dishSeal from '../assets/dish-seal.png'
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: rotate(-24deg);
 }
 
 .seal-arc-text {
-  fill: rgba(26, 26, 26, 0.92);
+  fill: rgba(18, 18, 18, 0.96);
   font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.42em;
-}
-
-.seal-center {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  letter-spacing: 0.14em;
 }
 
 .seal-value {
-  font-size: 2.8rem;
+  fill: url(#heroRevenueGradient);
+  font-size: 3.7rem;
   font-weight: 900;
-  color: var(--primary);
   letter-spacing: -0.05em;
 }
 
@@ -214,8 +210,12 @@ import dishSeal from '../assets/dish-seal.png'
     height: 156px;
   }
 
+  .seal-arc-text {
+    font-size: 13px;
+  }
+
   .seal-value {
-    font-size: 2.5rem;
+    font-size: 3.3rem;
   }
 }
 

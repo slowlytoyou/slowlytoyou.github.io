@@ -35,14 +35,25 @@
       </div>
 
       <!-- 가맹 절차 -->
-      <div class="process-steps">
-        <div v-for="(step, index) in steps" :key="index" class="step">
-          <div class="step-num">{{ index + 1 }}</div>
-          <div class="step-content">
-            <h4>{{ step.title }}</h4>
-            <p>{{ step.desc }}</p>
+      <div class="process-section" v-animate="'fade-up'">
+        <div class="process-header">
+          <h3 class="cost-title">오픈 진행 순서</h3>
+          <p class="process-hint">
+            <span class="process-hint-track" aria-hidden="true">
+              <span class="process-hint-thumb"></span>
+            </span>
+            <span>좌우로 넘겨 전체 순서를 확인해보세요.</span>
+          </p>
+        </div>
+        <div class="process-steps">
+          <div v-for="(step, index) in steps" :key="index" class="step">
+            <div class="step-num">{{ index + 1 }}</div>
+            <div class="step-content">
+              <h4>{{ step.title }}</h4>
+              <p>{{ step.desc }}</p>
+            </div>
+            <div v-if="index < steps.length - 1" class="step-arrow">→</div>
           </div>
-          <div v-if="index < steps.length - 1" class="step-arrow">→</div>
         </div>
       </div>
 
@@ -88,47 +99,27 @@
         </div>
       </div>
 
-      <!-- 브랜드 아이덴티티 -->
-      <div class="brand-identity" v-animate="'fade-up'">
-        <h3 class="cost-title">브랜드 아이덴티티 패키지</h3>
-        <div class="brand-grid">
-          <div v-for="b in brandItems" :key="b.label" class="brand-card">
-            <div class="brand-img">
-              <img :src="b.img" :alt="b.label" />
-            </div>
-            <p>{{ b.label }}</p>
-          </div>
-        </div>
-      </div>
-
       <!-- CTA -->
       <div class="cta-box" v-animate="'scale'">
-        <p>지금 바로 상담을 신청하고 성공 창업의 첫 걸음을 내딛으세요.</p>
-        <router-link to="/contact" class="btn-primary">상담 신청</router-link>
+        <p>상담과 검토는 충분히, 심사는 함께, 창업은 미래를 이어갑니다.</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import conceptA from '../assets/식당 조감도 hero-cutout.png'
+import conceptA from '../assets/인테리어 컨셉A.png'
 import conceptB from '../assets/식당 전경3.png'
 import view03 from '../assets/view03.jpg'
 import view04 from '../assets/view04.jpg'
 import view17 from '../assets/view17.jpg'
 import view08 from '../assets/view08.jpg'
-import imgApron from '../assets/30 앞치마.jpg'
-import imgDish from '../assets/22 용기.jpg'
-import imgVan from '../assets/50 승합차-A.jpg'
-import imgPackage from '../assets/쭈꾸미포장.jpg'
-import imgBanner from '../assets/16 오픈후현수막.jpg'
-
 const steps = [
   { title: '상담 신청', desc: '온라인 또는 전화 상담' },
   { title: '내부 심사', desc: '철저한 심사를 통한 선발' },
   { title: '상권 분석', desc: '입지 및 상권 전문 분석' },
   { title: '계약 체결', desc: '가맹 계약 및 교육 시작' },
-  { title: '오픈 준비', desc: '인테리어·설비 지원' },
+  { title: '오픈 준비', desc: '인테리어 설비 착공' },
   { title: '그랜드 오픈', desc: '본사 오픈 지원팀 파견' },
 ]
 
@@ -142,14 +133,6 @@ const costRows = [
   { item: '간판', amount: '600', note: '' },
   { item: '로열티', amount: '100', note: '월 로열티 + 창업전략연구소' },
   { item: 'POS시스템/서빙로봇', amount: '-', note: '선택사항 (KT하이오더)' },
-]
-
-const brandItems = [
-  { label: '유니폼 (앞치마)', img: imgApron },
-  { label: '브랜드 식기', img: imgDish },
-  { label: '홍보 차량 래핑', img: imgVan },
-  { label: '포장 용기', img: imgPackage },
-  { label: '오픈 현수막', img: imgBanner },
 ]
 
 const detailShots = [
@@ -263,13 +246,72 @@ const detailShots = [
 }
 
 /* 가맹 절차 */
+.process-section {
+  margin-bottom: 70px;
+}
+
+.process-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.process-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.process-hint-track {
+  position: relative;
+  width: 52px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(215, 77, 58, 0.12);
+  border: 1px solid rgba(215, 77, 58, 0.18);
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.process-hint-thumb {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 22px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f28b6e, var(--primary));
+  box-shadow: 0 4px 10px rgba(215, 77, 58, 0.25);
+  animation: swipeHint 1.8s ease-in-out infinite;
+}
+
+@keyframes swipeHint {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: translateX(22px);
+    opacity: 1;
+  }
+}
+
 .process-steps {
   display: flex;
   align-items: flex-start;
   gap: 0;
-  margin-bottom: 70px;
   overflow-x: auto;
   padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(215, 77, 58, 0.38) rgba(12, 19, 40, 0.08);
 }
 
 .step {
@@ -332,12 +374,6 @@ const detailShots = [
   font-size: 0.88rem;
   color: var(--gray);
   margin-bottom: 20px;
-}
-
-.brand-sub {
-  font-size: 0.88rem;
-  color: var(--gray);
-  margin-bottom: 24px;
 }
 
 .cost-table {
@@ -440,53 +476,6 @@ const detailShots = [
   line-height: 1.7;
 }
 
-/* 브랜드 아이덴티티 */
-.brand-identity {
-  margin-bottom: 60px;
-}
-
-.brand-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-
-.brand-card {
-  border-radius: 10px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  transition: transform 0.3s ease;
-}
-
-.brand-card:hover {
-  transform: translateY(-4px);
-}
-
-.brand-img {
-  height: 150px;
-  overflow: hidden;
-}
-
-.brand-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.brand-card:hover .brand-img img {
-  transform: scale(1.08);
-}
-
-.brand-card p {
-  padding: 10px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-  text-align: center;
-}
-
 /* CTA */
 .cta-box {
   background: linear-gradient(135deg, var(--primary), #e05545);
@@ -516,31 +505,14 @@ const detailShots = [
 
 .cta-box p {
   font-size: 1.1rem;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   opacity: 0.9;
   position: relative;
-}
-
-.cta-box .btn-primary {
-  background: white;
-  color: var(--primary);
-  font-size: 1.05rem;
-  position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cta-box .btn-primary:hover {
-  background: #f8f8f8;
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 900px) {
   .support-cards {
     grid-template-columns: 1fr;
-  }
-  .brand-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
   .store-gallery {
     grid-template-columns: 1fr;
@@ -561,9 +533,18 @@ const detailShots = [
 }
 
 @media (max-width: 560px) {
-  .brand-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .process-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 14px;
   }
+
+  .process-hint {
+    font-size: 0.78rem;
+    white-space: normal;
+    gap: 8px;
+  }
+
   .cta-box {
     padding: 32px 20px;
   }
