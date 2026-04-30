@@ -54,6 +54,27 @@
         </div>
       </div>
 
+      <div class="brand-store-finder" v-animate="'fade-up'">
+        <div class="brand-store-copy">
+          <h3>매장 찾기</h3>
+        </div>
+
+        <a
+          href="https://naver.me/FafyKsFo"
+          target="_blank"
+          rel="noopener"
+          class="brand-store-card"
+        >
+          <div class="brand-store-top">
+            <div class="brand-store-badge">NAVER MAP</div>
+            <span class="brand-store-link-label">지도로 바로 연결</span>
+          </div>
+          <h4>쭈나라꾸미 경산점</h4>
+          <p>경북 경산시 사정동 261</p>
+          <span class="brand-store-link">네이버지도에서 매장 보기</span>
+        </a>
+      </div>
+
       <!-- BS 창업전략연구소 전용 섹션 -->
       <div class="bs-section" v-animate="'fade-up'" :style="{ backgroundImage: `linear-gradient(135deg, rgba(10, 29, 51, 0.9), rgba(13, 35, 61, 0.78)), url(${conceptB})` }">
         <div class="bs-badge">BS 창업전략연구소</div>
@@ -363,6 +384,96 @@ const features = [
   margin-bottom: 0;
 }
 
+.brand-store-finder {
+  margin-bottom: 60px;
+}
+
+.brand-store-copy {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.brand-store-copy h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.brand-store-copy p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.brand-store-card {
+  display: block;
+  text-align: left;
+  padding: 28px 28px 30px;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(9, 16, 34, 0.94), rgba(18, 31, 60, 0.9)),
+    linear-gradient(135deg, #14c96c, #0f9f55);
+  color: white;
+  box-shadow: 0 16px 40px rgba(13, 33, 64, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.brand-store-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 52px rgba(13, 33, 64, 0.24);
+}
+
+.brand-store-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.brand-store-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(20, 201, 108, 0.16);
+  border: 1px solid rgba(20, 201, 108, 0.3);
+  color: #8ff1bf;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.brand-store-link-label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.brand-store-card h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.brand-store-card p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.brand-store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #9cf0c7;
+}
+
+.brand-store-link::after {
+  content: '→';
+}
+
 .brand-bold {
   color: var(--dark) !important;
   font-weight: 800;
@@ -575,6 +686,14 @@ const features = [
   }
   .brand-intro {
     padding: 36px 24px;
+  }
+  .brand-store-card {
+    padding: 24px 20px 24px;
+  }
+  .brand-store-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
   }
   .bs-section {
     padding: 40px 24px;
