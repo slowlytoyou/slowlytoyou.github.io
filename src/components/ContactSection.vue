@@ -17,10 +17,10 @@
             <p>클릭하면 카카오톡 채널 채팅이 열립니다.</p>
           </a>
 
-          <a href="tel:01021323153" class="action-card phone-card">
+          <a href="tel:15513283" class="action-card phone-card">
             <div class="action-icon phone-icon">📞</div>
             <h3>전화 상담</h3>
-            <p>010-2132-3153<br>클릭하여 바로 통화</p>
+            <p>1551-3283<br>클릭하여 바로 통화</p>
           </a>
         </div>
 

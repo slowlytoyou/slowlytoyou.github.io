@@ -115,6 +115,7 @@
       </div>
 
       <!-- 브랜드 특장점 -->
+      <h4 class="bs-subtitle" v-animate="'fade-up'">BS창업전략연구소 운영 방향</h4>
       <div class="features-grid">
         <div v-for="(item, i) in features" :key="i" class="feature-card" v-animate:[i*100]="'fade-up'">
           <div class="feature-num">{{ String(i + 1).padStart(2, '0') }}</div>
@@ -557,6 +558,16 @@ const features = [
 .bs-content strong {
   color: #5fa3f0;
   font-weight: 700;
+}
+
+.bs-subtitle {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
+  position: relative;
+  text-align: center;
 }
 
 .bs-features {
